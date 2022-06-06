@@ -3,7 +3,7 @@ name: Release Charts
 on:
   push:
     branches:
-      - main
+      - release/*
 
 jobs:
   release:
@@ -18,7 +18,18 @@ jobs:
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      
+      - name: Set Version
+        run: |
+          npm install @actions/core --save
+          node ../scripts/getversion.js
 
+      - name: Update Version
+        uses: datamonsters/replace-action
+        with:
+          files: '../../charts/admin/Chart.yaml,../../charts/api/Chart.yaml,../../charts/auth/Chart.yaml'
+          replacements: '$CHART_VERSION=${VERSION_NAME}'
+      
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.1.0
         env:
