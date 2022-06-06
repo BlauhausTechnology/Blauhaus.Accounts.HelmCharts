@@ -3,6 +3,16 @@ entries:
   admin:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-06-06T11:30:46.915860249Z"
+    description: Admin web app
+    digest: 3c901e2eb6d57f086f800424a5e416fdf572bcdc4fda35084f65c52158d26a26
+    name: admin
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.4/admin-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-06-06T11:26:03.684647299Z"
     description: Admin web app
     digest: 02edd4f55dcd83b08a55e2bdf4a903ef159ceaaf40efa432c13ec0e8e6ac7a41
@@ -32,6 +42,16 @@ entries:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.1/admin-0.1.1.tgz
     version: 0.1.1
   api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-06-06T11:30:47.277276594Z"
+    description: API
+    digest: ee544249013e02610e53741f5e4f6da2f81cb7f7dda84a6aefe8196c470e8e08
+    name: api
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.1.4/api-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-06-06T11:26:03.834986701Z"
@@ -65,6 +85,16 @@ entries:
   auth:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-06-06T11:30:47.40167757Z"
+    description: Authentication
+    digest: 4a2d9421472922ada7d6bf1ea8eaa05638f1fae0eb37ea20dd07157aeddeec75
+    name: auth
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.4/auth-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-06-06T11:26:03.956445921Z"
     description: Authentication
     digest: 57912a4ccfa397c7371b619e3a5e145d1f0e242eb090daa17f2e95240a7a3cda
@@ -93,4 +123,4 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.1/auth-0.1.1.tgz
     version: 0.1.1
-generated: "2022-06-06T11:26:03.956995721Z"
+generated: "2022-06-06T11:30:47.401712271Z"
