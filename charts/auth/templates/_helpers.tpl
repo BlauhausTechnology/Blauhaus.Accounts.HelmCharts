@@ -7,7 +7,7 @@
 {{- end -}}
 
 {{- define "imageUrl" -}}
-{{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.AppVersion }}
+{{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
 {{- end -}}
 
 {{- define "appVersion" -}}
