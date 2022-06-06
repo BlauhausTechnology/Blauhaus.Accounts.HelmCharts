@@ -1,6 +1,0 @@
-apiVersion: v2
-name: admin
-description: Admin web app
-version: 0.1.0        # version of the chart 
-type: application
-appVersion: "0.1.0"   # version of the Account Sample application
