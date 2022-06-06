@@ -11,7 +11,7 @@
 {{- end -}}
 
 {{- define "appVersion" -}}
-{{ .Values.global.appVersion }}
+{{ .Values.global.appVersion -}}
 {{- end -}}
 
 {{- define "host" -}}
