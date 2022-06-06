@@ -24,12 +24,19 @@ jobs:
         run: |
           npm install @actions/core --save
           node ./.github/scripts/getversion.js
-
-      - name: Replace Action
-        uses: datamonsters/replace-action@v2
+      
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
         with:
-          files: './charts/admin/Chart.yaml,./charts/api/Chart.yaml,./charts/auth/Chart.yaml'
-          replacements: '$CHART_VERSION={{ VERSION_NAME }}'
+          find: "CHART_VERSION"
+          replace: ${VERSION_NAME}
+          regex: false
+
+      # - name: Replace Action
+      #   uses: datamonsters/replace-action@v2
+      #   with:
+      #     files: './charts/admin/Chart.yaml,./charts/api/Chart.yaml,./charts/auth/Chart.yaml'
+      #     replacements: '$CHART_VERSION={{ VERSION_NAME }}'
       
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.1.0
