@@ -1,5 +1,5 @@
 {{- define "applicationName" -}}
-{{ printf "%s" .Release.Name -}}
+{{ printf "%s" .Values.global.appName -}}
 {{- end -}}
 
 {{- define "moduleName" -}}

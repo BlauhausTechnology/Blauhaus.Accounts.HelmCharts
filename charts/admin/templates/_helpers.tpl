@@ -1,5 +1,5 @@
 {{- define "applicationName" -}}
-{{ printf "%s" .Release.Name -}}
+{{ printf "%s" .Values.global.appName -}}
 {{- end -}}
 
 {{- define "moduleName" -}}
@@ -15,7 +15,7 @@
 {{- end -}}
 
 {{- define "host" -}}
-{{- if eq .Release.Name "production" -}}
+{{- if contains .Release.Name "production" -}}
 {{- printf "%s.%s" .Values.global.appName .Values.global.domain -}}
 {{- else -}}
 {{- printf "%s-%s.%s" .Values.global.appName .Release.Name .Values.global.domain -}}
@@ -23,11 +23,11 @@
 {{- end -}}
 
 {{- define "environment"}}
-{{- if eq .Release.Name "production" -}}
+{{- if contains .Release.Name "production" -}}
 {{- "Production" -}}
-{{- else if eq .Release.Name "staging" -}}
+{{- else if contains .Release.Name "staging" -}}
 {{- "Staging" -}}
-{{- else if eq .Release.Name "testing" -}}
+{{- else if contains .Release.Name "testing" -}}
 {{- "Testing" -}}
 {{- else -}}
 {{- "Development" -}}
