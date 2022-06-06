@@ -4,13 +4,13 @@ metadata:
   name: {{ include "moduleName" . }}-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: {{ include "applicationName" . }}-clusterissuer
+    cert-manager.io/cluster-issuer: {{ include "moduleName" . }}-clusterissuer
     nginx.ingress.kubernetes.io/affinity: "cookie"      
 spec:
   tls:
   - hosts:
     - {{ include "host" . }}
-    secretName: {{ include "applicationName" . }}-secret-ssl
+    secretName: {{ include "moduleName" . }}-secret-ssl
   rules: 
   - host: {{ include "host" . }}
     http:
