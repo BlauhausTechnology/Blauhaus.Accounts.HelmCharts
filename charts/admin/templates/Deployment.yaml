@@ -50,30 +50,15 @@ spec:
         - name: OpenIdOptions__BaseAuthUrl
           value: https://account-sample.blauhaustechnology.com
         - name: AzureAd__TenantId 
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "applicationName" . }}-secrets
-              key: AzureAd--TenantId 
+          value: {{ .Values.azuread.tenantId }}
         - name: AzureAd__Instance
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "applicationName" . }}-secrets
-              key: AzureAd--Instance
-        - name: AzureAd__Domain
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "applicationName" . }}-secrets
-              key: AzureAd--Domain
+          value: {{ .Values.azuread.instance }}
+        - name: AzureAd__Domain 
+          value: {{ .Values.azuread.domain }}
         - name: AzureAd__ClientId
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "applicationName" . }}-secrets
-              key: AzureAd--ClientId
+          value: {{ .Values.azuread.clientId }}
         - name: AzureAd__CallbackPath
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "applicationName" . }}-secrets
-              key: AzureAd--CallbackPath
+          value: {{ .Values.azuread.callbackPath }}
         - name: ConnectionStrings__EvacsDb
           valueFrom:
             secretKeyRef:
