@@ -28,7 +28,7 @@ jobs:
       - name: Replace Action
         uses: datamonsters/replace-action@v2
         with:
-          files: '../../charts/admin/Chart.yaml,../../charts/api/Chart.yaml,../../charts/auth/Chart.yaml'
+          files: './charts/admin/Chart.yaml,./charts/api/Chart.yaml,./charts/auth/Chart.yaml'
           replacements: '$CHART_VERSION=${VERSION_NAME}'
       
       - name: Run chart-releaser
