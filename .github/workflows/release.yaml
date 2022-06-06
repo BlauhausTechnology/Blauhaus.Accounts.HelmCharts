@@ -23,11 +23,7 @@ jobs:
       - name: Set Version
         run: |
           npm install @actions/core --save
-          node ./.github/scripts/getversion.js
-      
-      - name: Check Version
-        run: |
-          echo "VERSION_NAME is $VERSION_NAME"
+          node ./.github/scripts/getversion.js 
       
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v2
