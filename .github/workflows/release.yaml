@@ -24,6 +24,7 @@ jobs:
         run: |
           npm install @actions/core --save
           node ./.github/scripts/getversion.js
+          echo "$VERSION_NAME!"
       
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v2
