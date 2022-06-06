@@ -23,7 +23,7 @@ spec:
       - name: secret-docker-auth
       containers:
       - name: {{ include "moduleName" . }}-container
-        image: {{ .Values.global.repository }}/{{ .Values.global.appName }}-{{ .Chart.Name }}:{{ .Values.global.appVersion }}
+        image: {{ .Values.global.repository }}/{{ .Values.global.appName }}-{{ .Chart.Name }}:{{ .Chart.appVersion }}
         volumeMounts:
           - name: openid-signing
             mountPath: "/etc/certificates/signing"

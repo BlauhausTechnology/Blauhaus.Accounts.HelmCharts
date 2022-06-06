@@ -3,4 +3,4 @@ name: admin
 description: Admin web app
 version: CHART_VERSION        # version of the chart 
 type: application
-appVersion: "0.1.0"   # version of the Account Sample application
+appVersion: "0.1.0"           # version of the application
