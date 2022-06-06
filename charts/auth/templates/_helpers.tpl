@@ -1,9 +1,9 @@
 {{- define "applicationName" -}}
-{{ printf "%s-%s" .Values.global.appName .Release.Name -}}
+{{ printf "%s-%s" .Release.Name -}}
 {{- end -}}
 
 {{- define "moduleName" -}}
-{{ printf "%s-%s-%s" .Values.global.appName .Release.Name .Chart.Name -}}
+{{ printf "%s-%s-%s" .Release.Name .Chart.Name -}}
 {{- end -}}
 
 {{- define "imageUrl" -}}
