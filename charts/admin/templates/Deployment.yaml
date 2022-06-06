@@ -41,6 +41,8 @@ spec:
           value: {{ .Release.Name }}
         - name: Host
           value: {{ include "host" . }}
+        - name: AppVersion
+          value: {{ include "appVersion" . }}
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
         - name: ASPNETCORE_URLS
