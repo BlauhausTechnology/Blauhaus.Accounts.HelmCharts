@@ -18,7 +18,7 @@
 {{- if contains .Release.Name "production" -}}
 {{- printf "%s.%s" .Values.global.appName .Values.global.domain -}}
 {{- else -}}
-{{- printf "%s-%s.%s" .Release.Name .Values.global.domain -}}
+{{- printf "%s-%s" .Release.Name .Values.global.domain -}}
 {{- end -}}
 {{- end -}}
 
