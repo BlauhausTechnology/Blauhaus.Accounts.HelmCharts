@@ -29,7 +29,7 @@ jobs:
         uses: datamonsters/replace-action@v2
         with:
           files: './charts/admin/Chart.yaml,./charts/api/Chart.yaml,./charts/auth/Chart.yaml'
-          replacements: '$CHART_VERSION=${{ VERSION_NAME }}'
+          replacements: '$CHART_VERSION={{ $VERSION_NAME }}'
       
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.1.0
