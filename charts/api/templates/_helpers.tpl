@@ -1,17 +1,17 @@
 {{- define "applicationName" -}}
-{{ printf "%s" .Values.global.appName -}}
+{{ printf "%s" .Values.global.appName }}
 {{- end -}}
 
 {{- define "moduleName" -}}
-{{ printf "%s-%s" .Release.Name .Chart.Name -}}
+{{ printf "%s-%s" .Release.Name .Chart.Name }}
 {{- end -}}
 
 {{- define "imageUrl" -}}
-{{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion -}}
+{{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.AppVersion }}
 {{- end -}}
 
 {{- define "appVersion" -}}
-{{ .Values.global.appVersion -}}
+{{ .Values.global.appVersion }}
 {{- end -}}
 
 {{- define "host" -}}
@@ -22,7 +22,7 @@
 {{- end -}}
 {{- end -}}
 
-{{- define "environment"}}
+{{ define "environment"}}
 {{- if contains .Release.Name "production" -}}
 {{- "Production" -}}
 {{- else if contains .Release.Name "staging" -}}
