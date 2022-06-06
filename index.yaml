@@ -1,0 +1,36 @@
+apiVersion: v1
+entries:
+  admin:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-06-06T10:08:04.395905824Z"
+    description: Admin web app
+    digest: bcd67abf372a9c1a5a74e8844cf0659ed444431530b67aa1650a5d9d89d5ffc9
+    name: admin
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.1/admin-0.1.1.tgz
+    version: 0.1.1
+  api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-06-06T10:08:04.577942597Z"
+    description: API
+    digest: 2916cdba041dbcf848f92f0a3631c1a7d435e4276f5dbecc196bdd1cdaed1fd8
+    name: api
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.1.1/api-0.1.1.tgz
+    version: 0.1.1
+  auth:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-06-06T10:08:04.759538964Z"
+    description: Authentication
+    digest: 8304b1b88b8627cf3b77de90714ec6a2853f6430075713c25f00d958049be881
+    name: auth
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.1/auth-0.1.1.tgz
+    version: 0.1.1
+generated: "2022-06-06T10:08:04.087918147Z"
