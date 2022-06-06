@@ -3,6 +3,16 @@ entries:
   admin:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-06-06T11:14:44.977259417Z"
+    description: Admin web app
+    digest: 3b3614d59542ca7c81e7016771f18fb171a068936ac2567d78e0b90654ce3b30
+    name: admin
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.2/admin-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-06-06T10:32:55.711244184Z"
     description: Admin web app
     digest: dc8d2dbe8c18eae95574e4f7744dc60834f79b3ec23ed7ae04f0d8fea51bce50
@@ -12,6 +22,16 @@ entries:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.1/admin-0.1.1.tgz
     version: 0.1.1
   api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-06-06T11:14:45.14888961Z"
+    description: API
+    digest: f0a3cacb13be90c868126d6d779095353238bc82fd561a7dedf8158121c806c4
+    name: api
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.1.2/api-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-06-06T10:32:55.886196183Z"
@@ -25,6 +45,16 @@ entries:
   auth:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-06-06T11:14:45.321370504Z"
+    description: Authentication
+    digest: 19e11c795751f8661b0d17dae62c4592aa99e742642c659a4edf078511ddbc68
+    name: auth
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.2/auth-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-06-06T10:32:56.063033268Z"
     description: Authentication
     digest: c639686697d5964c066593a9e939cfce3db86a5fd3198c9fad151cb6ff39bba7
@@ -33,4 +63,4 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.1/auth-0.1.1.tgz
     version: 0.1.1
-generated: "2022-06-06T10:32:56.063037868Z"
+generated: "2022-06-06T11:14:45.321380704Z"
