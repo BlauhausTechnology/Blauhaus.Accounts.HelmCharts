@@ -11,7 +11,7 @@
 {{- end -}}
 
 {{- define "appVersion" -}}
- {{ printf "%s" .Values.global.appVersion }}
+{{ .Values.global.appVersion }}
 {{- end -}}
 
 {{- define "host" -}}
