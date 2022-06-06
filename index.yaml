@@ -3,6 +3,16 @@ entries:
   admin:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-06-06T16:59:34.92830832Z"
+    description: Admin web app
+    digest: f137d42979d2470ad617fe5402879cd448c3077eaff713cbaa96cfe7b6f08e53
+    name: admin
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.20/admin-0.1.20.tgz
+    version: 0.1.20
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-06-06T16:52:49.99379627Z"
     description: Admin web app
     digest: 41c48d96564f87b45acd5e93db44d8eec452870727ac3b6acc684b8d9b7abb45
@@ -192,6 +202,16 @@ entries:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.1/admin-0.1.1.tgz
     version: 0.1.1
   api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-06-06T16:59:35.092074388Z"
+    description: API
+    digest: 0157a9ba07ae8b2ec7513c778bebd4914d2b19fc7e9b166bc5f11a37a2f42130
+    name: api
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.1.20/api-0.1.20.tgz
+    version: 0.1.20
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-06-06T16:52:50.197688808Z"
@@ -385,6 +405,16 @@ entries:
   auth:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-06-06T16:59:35.27490061Z"
+    description: Authentication
+    digest: 85050fd1e7f021cd53c6a4e95a8d557ddbe96ea01b1cb90f733f3ac4aa7f8da4
+    name: auth
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.20/auth-0.1.20.tgz
+    version: 0.1.20
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-06-06T16:52:50.41379869Z"
     description: Authentication
     digest: ba7f8f8da8123ea0547f5802ce7a6a8650073b2363dbf1ecb7c3b152d917386d
@@ -573,4 +603,4 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.1/auth-0.1.1.tgz
     version: 0.1.1
-generated: "2022-06-06T16:52:50.414335192Z"
+generated: "2022-06-06T16:59:35.275568519Z"
