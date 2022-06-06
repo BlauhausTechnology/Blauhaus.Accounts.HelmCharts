@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,7 +23,13 @@ jobs:
       - name: Set Version
         run: |
           npm install @actions/core --save
-          node ../scripts/getversion.js
+          node ./.github/scripts/getversion.js
+
+      - name: Replace Action
+        uses: datamonsters/replace-action@v2
+        with:
+          files: '../../charts/admin/Chart.yaml,../../charts/api/Chart.yaml,../../charts/auth/Chart.yaml'
+          replacements: '$CHART_VERSION=${VERSION_NAME}'
       
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.1.0
