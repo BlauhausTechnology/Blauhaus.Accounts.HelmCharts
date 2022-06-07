@@ -75,6 +75,11 @@ spec:
           value: {{ .Values.azuread.clientId }}
         - name: AzureAd__CallbackPath
           value: {{ .Values.azuread.callbackPath }}
+        - name: ConnectionStrings__SendGrid
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: ConnectionStrings--SendGrid
         - name: ConnectionStrings__EvacsDb
           valueFrom:
             secretKeyRef:

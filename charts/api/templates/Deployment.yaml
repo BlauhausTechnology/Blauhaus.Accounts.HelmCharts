@@ -92,6 +92,11 @@ spec:
           value: "14"
         - name: OpenIdOptions__BaseAuthUrl
           value: https://account-sample.blauhaustechnology.com
+        - name: ConnectionStrings__SendGrid
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: ConnectionStrings--SendGrid
         - name: ConnectionStrings__EvacsDb
           valueFrom:
             secretKeyRef:
