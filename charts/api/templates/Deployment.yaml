@@ -81,7 +81,7 @@ spec:
         - name: OpenIdOptions__BaseAuthUrl
           value: https://account-sample.blauhaustechnology.com
         {{ $counter := 0 | int }}
-        {{- range .Values.logging -}}
+        {{- range .Values.global.logging -}}
         - name: Logging__{{ $counter }}__SourceContext
           value: {{ .sourceContext }}
         - name: Logging__{{ $counter }}__Level
