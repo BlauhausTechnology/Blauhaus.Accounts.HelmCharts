@@ -44,13 +44,13 @@ spec:
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
         {{ $counter := 0 | int }}
-        {{- range .Values.global.logging.overrides -}}
+        {{ range .Values.global.logging.overrides }}
         - name: Logging__{{ $counter }}__SourceContext
-            value: {{- .sourceContext -}}
+            value: {{ .sourceContext -}}
         - name: Logging__{{ $counter }}__Level
-            value: {{- .level -}}
+            value: {{ .level -}}
         {{ $counter = add1 $counter }}
-        {{- end -}}
+        {{ end }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
         - name: ASPNETCORE_URLS
