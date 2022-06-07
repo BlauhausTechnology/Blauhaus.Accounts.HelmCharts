@@ -62,6 +62,8 @@ spec:
               fieldPath: status.podIP
         - name: DOTNET_SHUTDOWNTIMEOUTSECONDS
           value: {{ .Values.terminationGracePeriodSeconds | quote }}
+        - name: ModuleName
+          value: {{ .Chart.Name }}
         - name: AppName
           value: {{ .Values.global.appName }}
         - name: ReleaseName

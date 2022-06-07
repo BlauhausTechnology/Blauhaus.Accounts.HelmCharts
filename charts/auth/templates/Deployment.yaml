@@ -35,6 +35,8 @@ spec:
         ports: 
         - containerPort: {{ .Values.port }} 
         env:
+        - name: ModuleName
+          value: {{ .Chart.Name }}
         - name: AppName
           value: {{ .Values.global.appName }}
         - name: ReleaseName
