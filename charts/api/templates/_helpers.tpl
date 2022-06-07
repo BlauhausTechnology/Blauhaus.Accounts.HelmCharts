@@ -23,15 +23,16 @@
 {{- end -}}
 
 {{- define "logging" -}}
-{{- $counter := 0 | int -}}
+{{ $counter := 0 | int }}
 {{- range .Values.global.logging.overrides -}}
 - name: Logging__{{ $counter }}__SourceContext
   value: {{ .sourceContext }}
 - name: Logging__{{ $counter }}__Level
   value: {{ .level }}
-{{- $counter = add1 $counter -}}
+{{ $counter = add1 $counter }}
 {{- end -}}
 {{- end -}}
+
 
 {{ define "environment"}}
 {{- if contains .Release.Name "production" -}}
