@@ -43,6 +43,7 @@ spec:
           value: {{ include "host" . }}
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
+        {{ include "logging" . }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
         - name: ASPNETCORE_URLS

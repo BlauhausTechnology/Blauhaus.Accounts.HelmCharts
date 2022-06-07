@@ -72,6 +72,7 @@ spec:
           value: {{ include "appVersion" . }}
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
+        {{ include "logging" . }}
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}
         - name: OpenIdOptions__AccessTokenExpiryHours 
@@ -80,14 +81,6 @@ spec:
           value: "14"
         - name: OpenIdOptions__BaseAuthUrl
           value: https://account-sample.blauhaustechnology.com
-        {{ $counter := 0 | int }}
-        {{- range .Values.global.logging -}}
-        - name: Logging__{{ $counter }}__SourceContext
-          value: {{ .sourceContext }}
-        - name: Logging__{{ $counter }}__Level
-          value: {{ .level }}
-        {{ $counter = add1 $counter }}
-        {{- end -}}
         - name: ConnectionStrings__EvacsDb
           valueFrom:
             secretKeyRef:
