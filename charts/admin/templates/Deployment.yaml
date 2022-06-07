@@ -48,9 +48,9 @@ spec:
         {{ $counter := 0 | int }}
         {{ range .Values.global.logging.overrides }}
         - name: Logging__{{ $counter }}__SourceContext
-            value: {{ .sourceContext -}}
+            value: {{ .sourceContext }}
         - name: Logging__{{ $counter }}__Level
-            value: {{ .level -}}
+            value: {{ .level }}
         {{ $counter = add1 $counter }}
         {{ end }}
         - name: ASPNETCORE_URLS
