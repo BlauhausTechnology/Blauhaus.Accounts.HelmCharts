@@ -43,6 +43,8 @@ spec:
           value: {{ include "host" . }}
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
+        - name: Logging__Level
+          value: {{ .Values.global.logging.level }}  
         {{ $counter := 0 | int }}
         {{- range .Values.global.logging.overrides -}}
         - name: Logging__{{ $counter }}__SourceContext
