@@ -17,8 +17,8 @@ spec:
     metadata:
       labels:
         app: {{ include "moduleName" . }}-selector
-        orleans/serviceId: {{ include "applicationName" . }}-cluster
-        orleans/clusterId: {{ include "applicationName" . }}-cluster
+        orleans/serviceId: {{ include "releaseName" . }}-cluster
+        orleans/clusterId: {{ include "releaseName" . }}-cluster
     spec:
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       imagePullSecrets:
