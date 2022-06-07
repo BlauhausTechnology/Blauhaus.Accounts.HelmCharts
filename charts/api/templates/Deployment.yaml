@@ -91,17 +91,17 @@ spec:
         - name: ConnectionStrings__EvacsDb
           valueFrom:
             secretKeyRef:
-              name: {{ include "applicationName" . }}-secrets
+              name: {{ include "moduleName" . }}-secrets
               key: ConnectionStrings--EvacsDb
         - name: ConnectionStrings__ApplicationInsights
           valueFrom:
             secretKeyRef:
-              name: {{ include "applicationName" . }}-secrets
+              name: {{ include "moduleName" . }}-secrets
               key: ConnectionStrings--ApplicationInsights
         - name: ConnectionStrings__AzureStorage
           valueFrom:
             secretKeyRef:
-              name: {{ include "applicationName" . }}-secrets
+              name: {{ include "moduleName" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
         - name: openid-signing
