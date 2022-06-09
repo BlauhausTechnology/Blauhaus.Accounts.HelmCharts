@@ -26,10 +26,10 @@ spec:
         image: {{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
         volumeMounts:
           - name: openid-signing
-            mountPath: "/etc/certificates/signing"
+            mountPath: "/etc/{{ .Release.Name }}/signing"
             readOnly: true
           - name: openid-encryption
-            mountPath: "/etc/certificates/encryption"
+            mountPath: "/etc/{{ .Release.Name }}/encryption"
             readOnly: true
         imagePullPolicy: Always
         ports: 
