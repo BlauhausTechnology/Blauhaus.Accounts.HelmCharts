@@ -123,12 +123,13 @@ spec:
               name: {{ include "moduleName" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
-        - name: openid-signing-{{ .Release.Name }}
+        - name: {{ .Release.Name }}-openid-signing
           secret:
-            secretName: openid-signing-{{ .Release.Name }}
+            secretName: {{ .Release.Name }}-openid-signing
             optional: false
-        - name: openid-encryption-{{ .Release.Name }}
+        - name: {{ .Release.Name }}-openid-encryption
           secret:
-            secretName: openid-encryption-{{ .Release.Name }}
+            secretName: {{ .Release.Name }}-openid-encryption
             optional: false
+      
       
