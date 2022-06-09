@@ -25,10 +25,10 @@ spec:
       - name: {{ include "moduleName" . }}-container
         image: {{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
         volumeMounts:
-          - name: openid-signing
+          - name: {{ .Release.Name }}-openid-signing
             mountPath: "/{{ .Release.Name }}/signing"
             readOnly: true
-          - name: openid-encryption
+          - name: {{ .Release.Name }}-openid-encryption
             mountPath: "/{{ .Release.Name }}/encryption"
             readOnly: true
         imagePullPolicy: Always
@@ -96,12 +96,12 @@ spec:
               name: {{ include "moduleName" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
-        - name: openid-signing
+        - name: {{ .Release.Name }}-openid-signing
           secret:
-            secretName: openid-signing
+            secretName: {{ .Release.Name }}-openid-signing
             optional: false
-        - name: openid-encryption
+        - name: {{ .Release.Name }}-openid-encryption
           secret:
-            secretName: openid-encryption
+            secretName: {{ .Release.Name }}-openid-encryption
             optional: false
       
