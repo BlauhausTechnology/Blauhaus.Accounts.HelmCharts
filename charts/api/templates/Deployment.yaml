@@ -28,10 +28,10 @@ spec:
         image: {{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
         volumeMounts:
           - name: openid-signing
-            mountPath: "/etc/{{ .Release.Name }}/signing"
+            mountPath: "/etc/certificates/signing"
             readOnly: true
           - name: openid-encryption
-            mountPath: "/etc/{{ .Release.Name }}/encryption"
+            mountPath: "/etc/certificates/encryption"
             readOnly: true
         imagePullPolicy: Always
         ports: 
@@ -123,12 +123,12 @@ spec:
               name: {{ include "moduleName" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
-        - name: openid-signing
+        - name: openid-signing-{{ .Release.Name }}
           secret:
-            secretName: openid-signing
+            secretName: openid-signing-{{ .Release.Name }}
             optional: false
-        - name: openid-encryption
+        - name: openid-encryption-{{ .Release.Name }}
           secret:
-            secretName: openid-encryption
+            secretName: openid-encryption-{{ .Release.Name }}
             optional: false
       
