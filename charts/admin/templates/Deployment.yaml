@@ -27,10 +27,10 @@ spec:
         volumeMounts:
           - name: openid-signing
             mountPath: "/etc/certificates/signing"
-            readOnly: false
+            readOnly: true
           - name: openid-encryption
             mountPath: "/etc/certificates/encryption"
-            readOnly: false
+            readOnly: true
         imagePullPolicy: Always
         ports: 
         - containerPort: {{ .Values.port }} 
