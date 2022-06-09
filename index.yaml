@@ -3,6 +3,16 @@ entries:
   admin:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-06-09T13:26:22.396024863Z"
+    description: Admin web app
+    digest: c2942b73f28f28a23080d4f71ef51b5b5c1591360ab646e5fac6fb36545563d8
+    name: admin
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.2.4/admin-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-06-09T13:22:33.276625442Z"
     description: Admin web app
     digest: 36ee05c79ec753e44fe35d3ab261980f8999f327759f128fcc71d49ebe80f28a
@@ -482,6 +492,16 @@ entries:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.1/admin-0.1.1.tgz
     version: 0.1.1
   api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-06-09T13:26:22.59008117Z"
+    description: API
+    digest: 5e3161182f66244f9393275245e5b3b4b3affa649f57604e68b39cd58d0c2d7c
+    name: api
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.2.4/api-0.2.4.tgz
+    version: 0.2.4
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-06-09T13:22:33.409148265Z"
@@ -965,6 +985,16 @@ entries:
   auth:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-06-09T13:26:22.800522459Z"
+    description: Authentication
+    digest: 9856799fa9aa915f4d0650be8c2f79929f392a17d179b29ae72624546c47f2e9
+    name: auth
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.2.4/auth-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-06-09T13:22:33.54210216Z"
     description: Authentication
     digest: 367e21f58fb8c0bb5e24266a5715e2245952414b5a5fd2f7aaed182965648692
@@ -1443,4 +1473,4 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.1/auth-0.1.1.tgz
     version: 0.1.1
-generated: "2022-06-09T13:22:33.543221602Z"
+generated: "2022-06-09T13:26:22.801731095Z"
