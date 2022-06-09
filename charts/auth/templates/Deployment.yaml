@@ -40,7 +40,7 @@ spec:
         - name: AppName
           value: {{ .Values.global.appName }}
         - name: ReleaseName
-          value: {{.Release.Name}}
+          value: {{.Release.Name }}
         - name: Host
           value: {{ include "host" . }}
         - name: ASPNETCORE_ENVIRONMENT
@@ -60,11 +60,21 @@ spec:
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}
         - name: OpenIdOptions__AccessTokenExpiryHours 
-          value: "2"
+          value: {{ .Values.global.openId.accessTokenExpiryHours | quote }}
         - name: OpenIdOptions__RefreshTokenExpiryDays
-          value: "14"
+          value: {{ .Values.global.openId.refreshTokenExpiryDays | quote }}
         - name: OpenIdOptions__BaseAuthUrl
-          value: https://account-sample.blauhaustechnology.com  
+          value: {{ .Values.global.openId.baseAuthUrl }}
+        - name: OpenIdOptions__EncryptionPassword
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: OpenIdOptions--EncryptionPassword
+        - name: OpenIdOptions__SigningPassword
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: OpenIdOptions--SigningPassword
         - name: ConnectionStrings__SendGrid
           valueFrom:
             secretKeyRef:
