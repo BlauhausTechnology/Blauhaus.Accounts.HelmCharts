@@ -59,12 +59,6 @@ spec:
         {{- end -}}
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}
-        - name: OpenIdOptions__AccessTokenExpiryHours 
-          value: "2"
-        - name: OpenIdOptions__RefreshTokenExpiryDays
-          value: "14"
-        - name: OpenIdOptions__BaseAuthUrl
-          value: https://account-sample.blauhaustechnology.com
         - name: AzureAd__TenantId 
           value: {{ .Values.azuread.tenantId }}
         - name: AzureAd__Instance
