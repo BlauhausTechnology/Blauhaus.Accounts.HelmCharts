@@ -84,6 +84,11 @@ spec:
           value: {{ .level }}
         {{ $counter = add1 $counter }}
         {{- end -}}
+        #Add all custom environment variables in the .customEnvironment section
+        {{- range .Values.customEnvironment -}}
+        - name: {{ .name }}
+          value: {{ .value }}
+        {{- end -}}
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}
         - name: OpenIdOptions__AccessTokenExpiryHours 
