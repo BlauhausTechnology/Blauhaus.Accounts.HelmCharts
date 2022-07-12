@@ -84,7 +84,7 @@ spec:
           value: {{ .level }}
         {{ $counter = add1 $counter }}
         {{ end }}
-        {{- range .Values.customEnvironment }}
+        {{ range .Values.customEnvironment }}
         - name: {{ .name }}
           value: {{ .value }}
         {{ end }}
