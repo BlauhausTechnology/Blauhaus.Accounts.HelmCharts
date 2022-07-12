@@ -86,7 +86,7 @@ spec:
         {{ end }}
         {{ range .Values.customEnvironment }}
         - name: {{ .name }}
-          value: {{ .value }}
+          value: {{ .value | quote -}}
         {{ end }}
         {{ range .Values.customSecret }}
         - name: {{ .name }}
