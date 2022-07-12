@@ -55,6 +55,17 @@ spec:
           value: {{ .level }}
         {{ $counter = add1 $counter }}
         {{- end -}}
+        {{ range .Values.customEnvironment }}
+        - name: {{ .name }}
+          value: {{ .value | quote }}
+        {{ end }}
+        {{ range .Values.customSecret }}
+        - name: {{ .name }}
+          valueFrom:
+           secretKeyRef:
+             name: {{ include "moduleName" $ }}-secrets
+             key: {{ .name }}
+        {{ end }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
         - name: ASPNETCORE_URLS
