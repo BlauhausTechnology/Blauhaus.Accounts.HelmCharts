@@ -92,7 +92,7 @@ spec:
         - name: {{ .name }}
           valueFrom:
            secretKeyRef:
-             name: {{ include "moduleName" . }}-secrets
+             name: {{ include "moduleName" $ }}-secrets
              key: {{ .name }}
         {{ end }}
         - name: ASPNETCORE_URLS
