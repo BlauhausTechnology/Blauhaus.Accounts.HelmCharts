@@ -84,12 +84,10 @@ spec:
           value: {{ .level }}
         {{ $counter = add1 $counter }}
         {{- end -}}
-        #Add all custom environment variables in the .customEnvironment section
         {{- range .Values.customEnvironment -}}
         - name: {{ .name }}
           value: {{ .value }}
         {{- end -}}
-        #Add all custom secrets as environment variables
         {{- range .Values.customSecret -}}
         - name: {{ .name }}
           valueFrom:
