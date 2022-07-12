@@ -86,7 +86,7 @@ spec:
         {{ end }}
         {{ range .Values.customEnvironment }}
         - name: {{ .name }}
-          value: {{ .value | quote -}}
+          value: {{ .value | quote }}
         {{ end }}
         {{ range .Values.customSecret }}
         - name: {{ .name }}
@@ -94,7 +94,7 @@ spec:
            secretKeyRef:
              name: {{ include "moduleName" . }}-secrets
              key: {{ .name }}
-        {{- end -}}
+        {{ end }}
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}
         - name: OpenIdOptions__AccessTokenExpiryHours 
