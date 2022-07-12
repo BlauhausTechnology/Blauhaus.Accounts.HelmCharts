@@ -83,7 +83,7 @@ spec:
         - name: Logging__{{ $counter }}__Level
           value: {{ .level }}
         {{ $counter = add1 $counter }}
-        {{- end -}}
+        {{ end }}
         {{ range .Values.customEnvironment }}
         - name: {{ .name }}
           value: {{ .value }}
