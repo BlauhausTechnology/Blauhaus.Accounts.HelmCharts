@@ -73,7 +73,7 @@ spec:
         - name: AppVersion
           value: {{ include "appVersion" . }}
         - name: Evacs__MaxJobsInParallel
-          value: {{ .Values.global.evacs.maxJobsInParallel }}
+          value: {{ .Values.global.evacs.maxJobsInParallel | quote }}
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
         - name: Logging__Level
