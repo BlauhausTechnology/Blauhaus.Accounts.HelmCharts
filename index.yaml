@@ -3,6 +3,16 @@ entries:
   admin:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-08-19T09:27:35.260475535Z"
+    description: Admin web app
+    digest: f8ee0a479dd10ded86a45eb6e2035e1a911595a257c2d48413df8fb616f6b1b4
+    name: admin
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.3.3/admin-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-08-19T09:23:26.73709469Z"
     description: Admin web app
     digest: 63d3c02cdee76f569bf6de7b8ae3de8635f205088b51f69f05ef75c840d88f42
@@ -782,6 +792,16 @@ entries:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.1.1/admin-0.1.1.tgz
     version: 0.1.1
   api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-08-19T09:27:35.391643392Z"
+    description: API
+    digest: b7869f376518980507c1c7001e46b1af6e9cb291f28a70cf7d42cbb8908fd39e
+    name: api
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.3.3/api-0.3.3.tgz
+    version: 0.3.3
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-08-19T09:23:26.897881289Z"
@@ -1565,6 +1585,16 @@ entries:
   auth:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-08-19T09:27:35.548453089Z"
+    description: Authentication
+    digest: 89f874aa9a6eb5160eaf2df6b6cd27c5bc00e347a3b71525561d12efa05d94b2
+    name: auth
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.3.3/auth-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-08-19T09:23:27.024461804Z"
     description: Authentication
     digest: 1554bc8def2e371912b2ca23366029e16b596fa4d051316c8fc4819775fe39f8
@@ -2343,4 +2373,4 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.1.1/auth-0.1.1.tgz
     version: 0.1.1
-generated: "2022-08-19T09:23:27.026572209Z"
+generated: "2022-08-19T09:27:35.553713799Z"
