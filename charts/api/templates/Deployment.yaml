@@ -105,9 +105,9 @@ spec:
           value: {{ .Values.global.openId.refreshTokenExpiryDays | quote }}
         - name: OpenIdOptions__BaseAuthUrl
           value: {{ .Values.global.openId.baseAuthUrl }}
-        {{ range .Values.global.openId.scopes }}
+        {{- range .Values.global.openId.scopes }}
         - name: OpenIdOptions__Scopes__{{ .name }}
-          value: {{ .id | quote }}
+          value: {{ .id | quote -}}
         {{ end }}
         - name: OpenIdOptions__EncryptionPassword
           valueFrom:
