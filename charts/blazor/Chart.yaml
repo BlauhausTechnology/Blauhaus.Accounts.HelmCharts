@@ -3,4 +3,4 @@ name: blazor
 description: Web host for blazor WASM app
 version: CHART_VERSION        # version of the chart 
 type: application
-appVersion: "0.0.0"           # version of the application
+appVersion: "0.1.0"           # version of the application
