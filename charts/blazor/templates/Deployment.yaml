@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: {{ include "moduleName" . }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "moduleName" . }}-selector  
+  minReadySeconds: 10   
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1     
+  template:
+    metadata:
+      labels:
+        app: {{ include "moduleName" . }}-selector
+    spec:
+      imagePullSecrets:
+      - name: secret-docker-auth
+      containers:
+      - name: {{ include "moduleName" . }}-container
+        image: {{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
+        volumeMounts:
+          - name: {{ .Release.Name }}-openid-signing
+            mountPath: "/{{ .Release.Name }}/signing"
+            readOnly: true
+          - name: {{ .Release.Name }}-openid-encryption
+            mountPath: "/{{ .Release.Name }}/encryption"
+            readOnly: true
+        imagePullPolicy: Always
+        ports: 
+        - containerPort: {{ .Values.port }} 
+        env:
+        - name: ModuleName
+          value: {{ .Chart.Name }}
+        - name: AppName
+          value: {{ .Values.global.appName }}
+        - name: ReleaseName
+          value: {{ .Release.Name }}
+        - name: Host
+          value: {{ include "host" . }}
+        - name: AppVersion
+          value: {{ include "appVersion" . }}
+        - name: ASPNETCORE_ENVIRONMENT
+          value: {{ include "environment" . }}
+        - name: Logging__Level
+          value: {{ .Values.global.logging.level }} 
+        {{ $counter := 0 | int }}
+        {{- range .Values.global.logging.overrides -}}
+        - name: Logging__{{ $counter }}__SourceContext
+          value: {{ .sourceContext }}
+        - name: Logging__{{ $counter }}__Level
+          value: {{ .level }}
+        {{ $counter = add1 $counter }}
+        {{- end -}}
+        {{ range .Values.customEnvironment }}
+        - name: {{ .name }}
+          value: {{ .value | quote }}
+        {{ end }}
+        {{ range .Values.customSecret }}
+        - name: {{ .name }}
+          valueFrom:
+           secretKeyRef:
+             name: {{ include "moduleName" $ }}-secrets
+             key: {{ .name }}
+        {{ end }}
+        - name: ASPNETCORE_URLS
+          value: http://0.0.0.0:{{ .Values.port }}  
+      volumes:
+        - name: {{ .Release.Name }}-openid-signing
+          secret:
+            secretName: {{ .Release.Name }}-openid-signing
+            optional: false
+        - name: {{ .Release.Name }}-openid-encryption
+          secret:
+            secretName: {{ .Release.Name }}-openid-encryption
+            optional: false
+      
+      
