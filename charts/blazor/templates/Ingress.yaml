@@ -12,10 +12,10 @@ spec:
     - {{ include "host" . }}
     secretName: {{ include "moduleName" . }}-secret-ssl
   rules: 
-  - host: {{ include "host" . }}
+  - host: app-{{ include "host" . }}
     http:
       paths:  
-      - path: {{ .Values.route }}
+      - path: "/"
         pathType: Prefix
         backend:
           service:
