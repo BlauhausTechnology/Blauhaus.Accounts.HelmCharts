@@ -76,6 +76,12 @@ spec:
           value: {{ .Values.global.openId.refreshTokenExpiryDays | quote }}
         - name: OpenIdOptions__BaseAuthUrl
           value: {{ .Values.global.openId.baseAuthUrl }}
+        {{ $counter := 0 | int }}
+        {{- range .Values.openId.clientDomains -}}
+        - name: OpenIdOptions__OpenIdClientDomains__{{ $counter }}
+          value: {{ . }}
+        {{ $counter = add1 $counter }}
+        {{- end -}}
         - name: OpenIdOptions__EncryptionPassword
           valueFrom:
             secretKeyRef:
