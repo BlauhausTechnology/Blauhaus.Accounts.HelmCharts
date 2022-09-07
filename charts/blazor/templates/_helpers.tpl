@@ -22,6 +22,14 @@
 {{- end -}}
 {{- end -}}
 
+{{- define "appHost" -}}
+{{- if contains .Release.Name "production" -}}
+{{- printf "%s.%s.%s" .Values.clientName .Values.global.appName .Values.global.domain -}}
+{{- else -}}
+{{- printf "%s.%s.%s" .Values.clientName .Release.Name .Values.global.domain -}}
+{{- end -}}
+{{- end -}}
+
 {{- define "logging" -}}
 {{ $counter := 0 | int }}
 {{- range .Values.global.logging.overrides -}}
