@@ -16,9 +16,9 @@
 
 {{- define "host" -}}
 {{- if contains .Release.Name "production" -}}
-{{- printf "%s.%s" .Values.global.appName .Values.global.domain -}}
+{{- printf "%s.%s.%s" .Values.clientName .Values.global.appName .Values.global.domain -}}
 {{- else -}}
-{{- printf "%s.%s" .Release.Name .Values.global.domain -}}
+{{- printf "%s.%s.%s" .Values.clientName .Release.Name .Values.global.domain -}}
 {{- end -}}
 {{- end -}}
 
