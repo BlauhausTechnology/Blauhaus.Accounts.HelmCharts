@@ -75,9 +75,9 @@ spec:
         - name: AccountClientOptions__OpenIdClientDomain
           value: {{ .Values.accountClientOptions.openIdClientDomain }}
         - name: AccountClientOptions__AuthBaseUrl
-          value: {{ .Values.global.openId.authBaseUrl }}
+          value: {{ .Values.global.openId.baseAuthUrl }}
         - name: AccountClientOptions__ApiBaseUrl
-          value: {{ .Values.global.openId.authBaseUrl }}
+          value: {{ .Values.global.openId.baseAuthUrl }}
         - name: ConnectionStrings__ApplicationInsights
           valueFrom:
             secretKeyRef:
