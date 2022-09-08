@@ -33,6 +33,8 @@ spec:
           value: {{ .Values.global.appName }}
         - name: ReleaseName
           value: {{ .Release.Name }}
+        - name: ClientName
+          value: {{ .Values.clientName }}
         - name: Host
           value: {{ include "appHost" . }}
         - name: AppVersion
@@ -62,5 +64,24 @@ spec:
         {{ end }}
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}   
+        - name: AccountClientOptions__TenantId
+          value: {{ .Values.tenantId }}
+        - name: AccountClientOptions__ApplicationId
+          value: {{ .Values.applicationId }}
+        - name: AccountClientOptions__OpenIdClientId
+          value: {{ .Values.openIdClientId }}
+        - name: AccountClientOptions__OpenIdClientSecret
+          value: {{ .Values.openIdClientSecret }}
+        - name: AccountClientOptions__OpenIdClientDomain
+          value: {{ .Values.openIdClientDomain }}
+        - name: AccountClientOptions__AuthBaseUrl
+          value: {{ .Values.global.authBaseUrl }}
+        - name: AccountClientOptions__ApiBaseUrl
+          value: {{ .Values.global.authBaseUrl }}
+        - name: ConnectionStrings__ApplicationInsights
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: ConnectionStrings--ApplicationInsights
       
       
