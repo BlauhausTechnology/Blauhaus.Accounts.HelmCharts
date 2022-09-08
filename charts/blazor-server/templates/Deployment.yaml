@@ -23,13 +23,6 @@ spec:
       containers:
       - name: {{ include "moduleName" . }}-container
         image: {{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
-        volumeMounts:
-          - name: {{ .Release.Name }}-openid-signing
-            mountPath: "/{{ .Release.Name }}/signing"
-            readOnly: true
-          - name: {{ .Release.Name }}-openid-encryption
-            mountPath: "/{{ .Release.Name }}/encryption"
-            readOnly: true
         imagePullPolicy: Always
         ports: 
         - containerPort: {{ .Values.port }} 
@@ -68,15 +61,6 @@ spec:
              key: {{ .name }}
         {{ end }}
         - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }}  
-      volumes:
-        - name: {{ .Release.Name }}-openid-signing
-          secret:
-            secretName: {{ .Release.Name }}-openid-signing
-            optional: false
-        - name: {{ .Release.Name }}-openid-encryption
-          secret:
-            secretName: {{ .Release.Name }}-openid-encryption
-            optional: false
+          value: http://0.0.0.0:{{ .Values.port }}   
       
       
