@@ -1,6 +1,6 @@
 apiVersion: v2
-name: blazor
-description: Web host for blazor WASM app
+name: blazor-server
+description: Blazor server app
 version: CHART_VERSION        # version of the chart 
 type: application
 appVersion: "0.1.0"           # version of the application
