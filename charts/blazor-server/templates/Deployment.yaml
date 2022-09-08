@@ -65,15 +65,15 @@ spec:
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}   
         - name: AccountClientOptions__TenantId
-          value: {{ .Values.tenantId }}
+          value: {{ .Values.accountClientOptions.tenantId }}
         - name: AccountClientOptions__ApplicationId
-          value: {{ .Values.applicationId }}
+          value: {{ .Values.accountClientOptions.applicationId }}
         - name: AccountClientOptions__OpenIdClientId
-          value: {{ .Values.openIdClientId }}
+          value: {{ .Values.accountClientOptions.openIdClientId }}
         - name: AccountClientOptions__OpenIdClientSecret
-          value: {{ .Values.openIdClientSecret }}
+          value: {{ .Values.accountClientOptions.openIdClientSecret }}
         - name: AccountClientOptions__OpenIdClientDomain
-          value: {{ .Values.openIdClientDomain }}
+          value: {{ .Values.accountClientOptions.openIdClientDomain }}
         - name: AccountClientOptions__AuthBaseUrl
           value: {{ .Values.global.authBaseUrl }}
         - name: AccountClientOptions__ApiBaseUrl
