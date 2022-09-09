@@ -63,7 +63,7 @@ spec:
         - name: DOTNET_SHUTDOWNTIMEOUTSECONDS
           value: {{ .Values.terminationGracePeriodSeconds | quote }}
         - name: ModuleName
-          value: {{ include "moduleName" }}
+          value: {{ include "moduleName" . }}
         - name: AppName
           value: {{ .Values.global.appName }}
         - name: ReleaseName
