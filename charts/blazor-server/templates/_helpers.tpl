@@ -1,5 +1,5 @@
 {{- define "moduleName" -}}
-{{ printf "%s-%s-%s" .Release.Name .Values.Name .Values.clientName }}
+{{ printf "%s-%s-%s" .Release.Name .Values.clientName }}
 {{- end -}}
  
 {{- define "appVersion" -}}
