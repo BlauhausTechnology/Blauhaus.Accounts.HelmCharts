@@ -8,11 +8,7 @@
 {{ else }}
 {{ printf "%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
 {{- end -}}
- 
-{{- define "clientModuleName" -}}
-{{- end -}}
- 
-
+  
 {{- define "appVersion" -}}
 {{ .Values.global.appVersion }}
 {{- end -}}
