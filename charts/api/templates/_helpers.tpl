@@ -25,13 +25,12 @@
 {{- end -}}
 {{- end -}}
 
-
 {{ define "environment"}}
-{{- if contains .Release.Name "production" -}}
+{{- if contains .Values.global.environment "production" -}}
 {{- "Production" -}}
-{{- else if contains .Release.Name "staging" -}}
+{{- else if contains .Values.global.environment "staging" -}}
 {{- "Staging" -}}
-{{- else if contains .Release.Name "testing" -}}
+{{- else if contains .Values.global.environment "testing" -}}
 {{- "Testing" -}}
 {{- else -}}
 {{- "Development" -}}
