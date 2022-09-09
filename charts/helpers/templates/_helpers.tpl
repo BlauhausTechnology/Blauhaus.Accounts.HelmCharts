@@ -2,12 +2,16 @@
 {{ printf "%s" .Values.global.appName }}
 {{- end -}}
 
+# {{- define "moduleName" -}}
+# {{- if (.Values.clientName) -}}
+# {{ printf "%s-%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name .Values.clientName }}
+# {{ else }}
+# {{ printf "%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
+# {{- end -}}
+# {{- end -}}
+
 {{- define "moduleName" -}}
-{{- if (.Values.clientName) -}}
-{{ printf "%s-%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name .Values.clientName }}
-{{ else }}
 {{ printf "%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
-{{- end -}}
 {{- end -}}
   
 {{- define "appVersion" -}}
