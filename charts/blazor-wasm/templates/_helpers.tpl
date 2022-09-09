@@ -1,33 +1,13 @@
-{{- define "applicationName" -}}
-{{ printf "%s" .Values.global.appName }}
-{{- end -}}
-
 {{- define "moduleName" -}}
-{{ printf "%s-%s" .Release.Name .Chart.Name }}
+{{ .Release.Name }}
 {{- end -}}
-
-{{- define "imageUrl" -}}
-{{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
-{{- end -}}
-
+ 
 {{- define "appVersion" -}}
 {{ .Values.global.appVersion }}
 {{- end -}}
 
-{{- define "host" -}}
-{{- if contains .Release.Name "production" -}}
-{{- printf "%s.%s.%s" .Values.clientName .Values.global.appName .Values.global.domain -}}
-{{- else -}}
-{{- printf "%s.%s.%s" .Values.clientName .Release.Name .Values.global.domain -}}
-{{- end -}}
-{{- end -}}
-
-{{- define "appHost" -}}
-{{- if contains .Release.Name "production" -}}
-{{- printf "%s.%s.%s" .Values.clientName .Values.global.appName .Values.global.domain -}}
-{{- else -}}
-{{- printf "%s.%s.%s" .Values.clientName .Release.Name .Values.global.domain -}}
-{{- end -}}
+{{- define "appHost" -}} 
+{{- printf "%s.%s" .Release.Name .Values.global.domain -}} 
 {{- end -}}
 
 {{- define "logging" -}}
