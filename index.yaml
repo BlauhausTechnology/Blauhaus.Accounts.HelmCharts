@@ -3,6 +3,16 @@ entries:
   admin:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-09-09T11:13:56.353908388Z"
+    description: Admin web app
+    digest: 460d48b3704a9528269eaab0f185c6bc10146fd75645ae2e5a7637890ddd94d2
+    name: admin
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.5.9/admin-0.5.9.tgz
+    version: 0.5.9
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-09T10:40:08.714770108Z"
     description: Admin web app
     digest: 9a95542ae992e58f79f47db43fce4596dc837facf4b0212aadd898c25827c661
@@ -974,6 +984,16 @@ entries:
   api:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-09-09T11:13:56.474254374Z"
+    description: API
+    digest: 95eb597f5f648907e957af5016d73fd5700e9a5b9d6997662fd6beb5959444b0
+    name: api
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.5.9/api-0.5.9.tgz
+    version: 0.5.9
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-09T10:40:08.881783335Z"
     description: API
     digest: 492bf02d8922fabd3d60556ed33559edb81f4e9b0cea447542bdee4c56bcea43
@@ -1943,6 +1963,16 @@ entries:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.1.1/api-0.1.1.tgz
     version: 0.1.1
   auth:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-09-09T11:13:56.609396107Z"
+    description: Authentication
+    digest: b94b2e7b0401c52c859c039bad391eec62941ac8005479eb4679f9c4c7174032
+    name: auth
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.5.9/auth-0.5.9.tgz
+    version: 0.5.9
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-09-09T10:40:09.058555657Z"
@@ -3017,6 +3047,16 @@ entries:
   blazor-server:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-09-09T11:13:56.726590782Z"
+    description: Blazor server app
+    digest: 9ab8560ddb0df6168f3fa6b39ce06756825ed872cc885c369120385f667834aa
+    name: blazor-server
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/blazor-server-0.5.9/blazor-server-0.5.9.tgz
+    version: 0.5.9
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-09T10:40:09.276943067Z"
     description: Blazor server app
     digest: dd47a07ef27d951e305a077d5d47aab3d8bd88597319c44af65d7e405d7f2ebc
@@ -3098,6 +3138,16 @@ entries:
   blazor-wasm:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-09-09T11:13:56.851262582Z"
+    description: Web host for blazor WASM app
+    digest: dcae54ef8876e7c3b5ba74c9af92b0c9215a99560797d01315ddcde4538d366f
+    name: blazor-wasm
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/blazor-wasm-0.5.9/blazor-wasm-0.5.9.tgz
+    version: 0.5.9
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-09T10:40:09.428035711Z"
     description: Web host for blazor WASM app
     digest: cc8d10ec173a8a4d430dbb506f000c7a689e2c66de936f0991a6eef3a24e753b
@@ -3176,4 +3226,4 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/blazor-wasm-0.5.1/blazor-wasm-0.5.1.tgz
     version: 0.5.1
-generated: "2022-09-09T10:40:09.431571936Z"
+generated: "2022-09-09T11:13:56.859573608Z"
