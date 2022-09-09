@@ -1,17 +1,13 @@
 {{- define "moduleName" -}}
-{{ printf "%s-%s" .Release.Name .Values.clientName }}
+{{ .Release.Name }}
 {{- end -}}
  
 {{- define "appVersion" -}}
 {{ .Values.global.appVersion }}
 {{- end -}}
 
-{{- define "appHost" -}}
-{{- if contains .Release.Name "production" -}}
-{{- printf "%s.%s.%s" .Values.clientName .Values.global.appName .Values.global.domain -}}
-{{- else -}}
-{{- printf "%s.%s.%s" .Values.clientName .Release.Name .Values.global.domain -}}
-{{- end -}}
+{{- define "appHost" -}} 
+{{- printf "%s.%s.%s" .Release.Name .Values.global.domain -}} 
 {{- end -}}
 
 {{- define "logging" -}}
