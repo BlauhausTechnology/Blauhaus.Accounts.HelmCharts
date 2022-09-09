@@ -3,7 +3,7 @@
 {{- end -}}
 
 {{- define "moduleName" -}}
-{{ printf "%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
+{{ printf "%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
 {{- end -}}
  
 {{- define "appVersion" -}}
