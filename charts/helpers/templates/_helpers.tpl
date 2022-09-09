@@ -1,8 +1,9 @@
 {{- define "applicationName" -}}
 {{ printf "%s" .Values.global.appName }}
 {{- end -}}
+
 {{- define "moduleName" -}}
-{{ printf "%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
+{{ printf "%s-%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name .Values.clientName }}
 {{- end -}}
   
 {{- define "appVersion" -}}
