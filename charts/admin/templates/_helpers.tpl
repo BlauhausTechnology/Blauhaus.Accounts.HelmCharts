@@ -3,7 +3,7 @@
 {{- end -}}
 
 {{- define "moduleName" -}}
-{{- if .Values.clientName -}}
+{{- if (.Values.clientName) -}}
 {{ printf "%s-%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name .Values.clientName }}
 {{ else }}
 {{ printf "%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
