@@ -6,8 +6,12 @@
 {{ .Values.global.appVersion }}
 {{- end -}}
 
-{{- define "appHost" -}} 
-{{- printf "%s.%s" .Release.Name .Values.global.domain -}} 
+{{- define "appHost" -}}
+{{- if contains .Values.environment "production" -}}
+{{- printf "%s.%s.%s" .Values.clientName .Values.global.appName .Values.global.domain -}}
+{{- else -}}
+{{- printf "%s.%s-%s.%s" .Values.clientName .Values.global.appName .Values.global.environment .Values.global.domain -}}
+{{- end -}}
 {{- end -}}
 
 {{- define "logging" -}}
