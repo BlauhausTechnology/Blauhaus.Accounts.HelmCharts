@@ -7,7 +7,7 @@
 {{- end -}}
 
 {{- define "appHost" -}} 
-{{- printf "%s.%s.%s" .Release.Name .Values.global.domain -}} 
+{{- printf "%s.%s" .Release.Name .Values.global.domain -}} 
 {{- end -}}
 
 {{- define "logging" -}}
