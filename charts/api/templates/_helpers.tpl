@@ -3,23 +3,15 @@
 {{- end -}}
 
 {{- define "moduleName" -}}
-{{ printf "%s-%s" .Release.Name .Chart.Name }}
+{{ printf "%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
 {{- end -}}
-
-{{- define "imageUrl" -}}
-{{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
-{{- end -}}
-
+ 
 {{- define "appVersion" -}}
 {{ .Values.global.appVersion }}
 {{- end -}}
 
-{{- define "host" -}}
-{{- if contains .Release.Name "production" -}}
-{{- printf "%s.%s" .Values.global.appName .Values.global.domain -}}
-{{- else -}}
-{{- printf "%s.%s" .Release.Name .Values.global.domain -}}
-{{- end -}}
+{{- define "appHost" -}} 
+{{- printf "%s-%s.%s" .Values.global.appName .Values.global.environment .Values.global.domain -}}
 {{- end -}}
 
 {{- define "logging" -}}

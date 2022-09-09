@@ -1,5 +1,5 @@
 {{- define "moduleName" -}}
-{{ .Release.Name }}
+{{ printf "%s-%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name .Values.clientName }}
 {{- end -}}
  
 {{- define "appVersion" -}}

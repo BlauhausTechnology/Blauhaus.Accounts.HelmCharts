@@ -1,5 +1,5 @@
 {{- define "moduleName" -}}
-{{ .Release.Name }}
+{{ printf "%s-%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name .Values.clientName }}
 {{- end -}}
  
 {{- define "appVersion" -}}
@@ -8,6 +8,15 @@
 
 {{- define "appHost" -}} 
 {{- printf "%s.%s" .Release.Name .Values.global.domain -}} 
+{{- end -}}
+
+
+{{- define "appHost" -}}
+{{- if contains .Release.Name "production" -}}
+{{- printf "%s.%s.%s" .Values.clientName .Values.global.appName .Values.global.domain -}}
+{{- else -}}
+{{- printf "%s.%s-%s.%s" .Values.clientName .Values.global.appName .Values.global.environment .Values.global.domain -}}
+{{- end -}}
 {{- end -}}
 
 {{- define "logging" -}}

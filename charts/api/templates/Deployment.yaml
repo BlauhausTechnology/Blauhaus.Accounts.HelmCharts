@@ -63,13 +63,13 @@ spec:
         - name: DOTNET_SHUTDOWNTIMEOUTSECONDS
           value: {{ .Values.terminationGracePeriodSeconds | quote }}
         - name: ModuleName
-          value: {{ .Chart.Name }}
+          value: {{ include "moduleName" }}
         - name: AppName
           value: {{ .Values.global.appName }}
         - name: ReleaseName
           value: {{.Release.Name}}
         - name: Host
-          value: {{ include "host" . }}
+          value: {{ include "appHost" . }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
         - name: Evacs__MaxJobsInParallel
