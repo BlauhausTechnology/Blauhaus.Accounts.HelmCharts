@@ -1,0 +1,6 @@
+apiVersion: v2
+name: helpers
+description: Helper functions
+version: CHART_VERSION        # version of the chart 
+type: library
+appVersion: "0.1.0"           # version of the application
