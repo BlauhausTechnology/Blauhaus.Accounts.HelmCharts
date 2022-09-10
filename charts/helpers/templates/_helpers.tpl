@@ -22,7 +22,7 @@
 {{- end -}}
 
 {{- define "dockerImage" -}} 
-{{-- printf "%s/%s-%s:%s" .Values.global.repository .Values.global.name .Chart.Name .Values.global.appVersion -}}
+{{- printf "%s/%s-%s:%s" .Values.global.repository .Values.global.name .Chart.Name .Values.global.appVersion -}}
 {{- end -}}
 
 {{- define "logging" -}}
