@@ -61,6 +61,20 @@ spec:
              key: {{ .name }}
         {{ end }}
         - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }}   
+          value: http://0.0.0.0:{{ .Values.port }}  
+        - name: AccountClientOptions__TenantId
+          value: {{ .Values.accountClientOptions.tenantId }}
+        - name: AccountClientOptions__ApplicationId
+          value: {{ .Values.accountClientOptions.applicationId }}
+        - name: AccountClientOptions__OpenIdClientId
+          value: {{ .Values.accountClientOptions.openIdClientId }}
+        - name: AccountClientOptions__OpenIdClientSecret
+          value: {{ .Values.accountClientOptions.openIdClientSecret }}
+        - name: AccountClientOptions__OpenIdClientDomain
+          value: {{-  include "clientUrl" . -}}
+        - name: AccountClientOptions__AuthBaseUrl
+          value: {{ .Values.global.openId.baseAuthUrl }}
+        - name: AccountClientOptions__ApiBaseUrl
+          value: {{ .Values.global.openId.baseAuthUrl }} 
       
       
