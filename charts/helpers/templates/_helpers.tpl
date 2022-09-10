@@ -18,7 +18,7 @@
 {{- end -}}
 
 {{- define "clientHost" -}} 
-{{- printf "%s-%s.%s" .Values.accountClientOptions.openIdClientDomain -}}
+{{- .Values.accountClientOptions.openIdClientDomain -}}
 {{- end -}}
 
 {{- define "dockerImage" -}} 
