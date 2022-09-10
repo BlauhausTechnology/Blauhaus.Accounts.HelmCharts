@@ -2,8 +2,12 @@
 {{ printf "%s" .Values.global.appName }}
 {{- end -}}
 
-{{- define "moduleName" -}}
+{{ define "moduleName" }}
+{{- if contains .Values.clientName "" -}}
 {{ printf "%s-%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name .Values.clientName }}
+{{- else -}}
+{{ printf "%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
+{{- end -}}
 {{- end -}}
   
 {{- define "appVersion" -}}
