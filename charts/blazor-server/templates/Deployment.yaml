@@ -39,7 +39,7 @@ spec:
         - name: AppName
           value: {{ .Values.global.Name }}
         - name: ClientName
-          value: {{ .Values.Name }}
+          value: {{ .Values.name }}
         - name: ReleaseName
           value: {{ .Release.Name }}
         - name: Host
