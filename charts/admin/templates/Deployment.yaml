@@ -23,7 +23,7 @@ spec:
       - name: secret-docker-auth
       containers:
       - name: {{ include "moduleName" . }}-container
-        image: {{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
+        image: {{ include "dockerImage" . }} 
         volumeMounts:
           - name: {{ .Release.Name }}-openid-signing
             mountPath: "/{{ .Release.Name }}/signing"
@@ -38,7 +38,7 @@ spec:
         - name: ModuleName
           value: {{ include "moduleName" . }}
         - name: AppName
-          value: {{ .Values.global.appName }}
+          value: {{ .Values.global.name }}
         - name: ReleaseName
           value: {{ .Release.Name }}
         - name: Host

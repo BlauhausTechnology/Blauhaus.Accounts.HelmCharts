@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: {{ include "moduleName" . }}
+  name: {{ include "clientModuleName" . }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: {{ include "moduleName" . }}-selector  
+      app: {{ include "clientModuleName" . }}-selector  
   minReadySeconds: 10   
   strategy:
     type: RollingUpdate
@@ -16,32 +16,25 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ include "moduleName" . }}-selector
+        app: {{ include "clientModuleName" . }}-selector
     spec:
       imagePullSecrets:
       - name: secret-docker-auth
       containers:
-      - name: {{ include "moduleName" . }}-container
-        image: {{ printf "%s/%s-%s:%s" .Values.global.repository .Values.global.appName .Chart.Name .Values.global.appVersion }}
-        volumeMounts:
-          - name: {{ .Release.Name }}-openid-signing
-            mountPath: "/{{ .Release.Name }}/signing"
-            readOnly: true
-          - name: {{ .Release.Name }}-openid-encryption
-            mountPath: "/{{ .Release.Name }}/encryption"
-            readOnly: true
+      - name: {{ include "clientModuleName" . }}-container
+        image: {{ include "dockerImage" . }} 
         imagePullPolicy: Always
         ports: 
         - containerPort: {{ .Values.port }} 
         env:
         - name: ModuleName
-          value: {{ .Chart.Name }}
+          value: {{ include "clientModuleName" . }}
         - name: AppName
-          value: {{ .Values.global.appName }}
+          value: {{ .Values.global.Name }}
         - name: ReleaseName
           value: {{ .Release.Name }}
         - name: Host
-          value: {{ include "appHost" . }}
+          value: {{ include "clientHost" . }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
         - name: ASPNETCORE_ENVIRONMENT
@@ -64,7 +57,7 @@ spec:
         - name: {{ .name }}
           valueFrom:
            secretKeyRef:
-             name: {{ include "moduleName" $ }}-secrets
+             name: {{ include "clientModuleName" $ }}-secrets
              key: {{ .name }}
         {{ end }}
         - name: ASPNETCORE_URLS

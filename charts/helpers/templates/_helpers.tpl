@@ -1,21 +1,28 @@
 {{- define "applicationName" -}}
-{{ printf "%s" .Values.global.appName }}
-{{- end -}}
-
-{{ define "moduleName" }}
-{{- if contains .Values.clientName "" -}}
-{{ printf "%s-%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name .Values.clientName }}
-{{- else -}}
-{{ printf "%s-%s-%s" .Values.global.appName .Values.global.environment .Chart.Name }}
-{{- end -}}
+{{ printf "%s" .Values.global.name }}
 {{- end -}}
   
 {{- define "appVersion" -}}
 {{ .Values.global.appVersion }}
 {{- end -}}
 
-{{- define "appHost" -}} 
-{{- printf "%s-%s.%s" .Values.global.appName .Values.global.environment .Values.global.domain -}}
+{{- define "moduleName" -}}
+{{ printf "%s-%s-%s-%s" .Values.global.name .Values.global.environment .Chart.Name }}
+{{- end -}}
+
+{{- define "clientModuleName" -}}
+{{ printf "%s-%s-%s-%s" .Values.global.name .Values.global.environment .Chart.Name .Values.name }}
+{{- end -}}
+{{- define "host" -}} 
+{{- printf "%s-%s.%s" .Values.global.name .Values.global.environment .Values.global.domain -}}
+{{- end -}}
+
+{{- define "clientHost" -}} 
+{{- printf "%s-%s.%s" .Values.clientHost -}}
+{{- end -}}
+
+{{- define "dockerImage" -}} 
+{{-- printf "%s/%s-%s:%s" .Values.global.repository .Values.global.name .Chart.Name .Values.global.appVersion -}}
 {{- end -}}
 
 {{- define "logging" -}}
