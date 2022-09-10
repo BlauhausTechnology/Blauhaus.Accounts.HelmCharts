@@ -22,7 +22,7 @@ spec:
       - name: secret-docker-auth
       containers:
       - name: {{ include "clientModuleName" . }}-container
-        image: {{ include "dockerImage" . }} 
+        image: {{ include "clientDockerImage" . }} 
         imagePullPolicy: Always
         ports: 
         - containerPort: {{ .Values.port }} 
@@ -61,15 +61,6 @@ spec:
              key: {{ .name }}
         {{ end }}
         - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }}  
-      volumes:
-        - name: {{ .Release.Name }}-openid-signing
-          secret:
-            secretName: {{ .Release.Name }}-openid-signing
-            optional: false
-        - name: {{ .Release.Name }}-openid-encryption
-          secret:
-            secretName: {{ .Release.Name }}-openid-encryption
-            optional: false
+          value: http://0.0.0.0:{{ .Values.port }}   
       
       

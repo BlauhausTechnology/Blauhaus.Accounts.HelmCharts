@@ -22,7 +22,7 @@ spec:
       - name: secret-docker-auth
       containers:
       - name: {{ include "clientModuleName" . }}-container
-        image: {{ include "dockerImage" . }}
+        image: {{ include "clientDockerImage" . }}
         volumeMounts:
           - name: {{ .Release.Name }}-openid-signing
             mountPath: "/{{ .Release.Name }}/signing"

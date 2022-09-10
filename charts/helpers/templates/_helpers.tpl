@@ -13,6 +13,8 @@
 {{- define "clientModuleName" -}}
 {{ printf "%s-%s-%s-%s" .Values.global.name .Values.global.environment .Chart.Name .Values.name }}
 {{- end -}}
+
+
 {{- define "host" -}} 
 {{- printf "%s-%s.%s" .Values.global.name .Values.global.environment .Values.global.domain -}}
 {{- end -}}
@@ -21,9 +23,15 @@
 {{- .Values.accountClientOptions.openIdClientDomain -}}
 {{- end -}}
 
+
 {{- define "dockerImage" -}} 
 {{- printf "%s/%s-%s:%s" .Values.global.repository .Values.global.name .Chart.Name .Values.global.appVersion -}}
 {{- end -}}
+
+{{- define "clientDockerImage" -}} 
+{{- printf "%s/%s-%s-%s:%s" .Values.global.repository .Values.global.name .Chart.Name .Values.name .Values.global.appVersion -}}
+{{- end -}}
+
 
 {{- define "logging" -}}
 {{ $counter := 0 | int }}
