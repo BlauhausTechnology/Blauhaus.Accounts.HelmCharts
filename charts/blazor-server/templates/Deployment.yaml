@@ -72,7 +72,7 @@ spec:
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}   
         - name: ASPNETCORE_HTTPS_PORT
-          value: {{ .Values.port }}
+          value: {{ .Values.port | quote }}
         - name: AccountClientOptions__TenantId
           value: {{ .Values.accountClientOptions.tenantId }}
         - name: AccountClientOptions__ApplicationId
