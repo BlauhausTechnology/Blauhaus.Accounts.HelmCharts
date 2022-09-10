@@ -71,7 +71,7 @@ spec:
         - name: AccountClientOptions__OpenIdClientSecret
           value: {{ .Values.accountClientOptions.openIdClientSecret }}
         - name: AccountClientOptions__OpenIdClientDomain
-          value: {{-  include "clientUrl" . -}}
+          value: {{ include "clientUrl" . }}
         - name: AccountClientOptions__AuthBaseUrl
           value: {{ .Values.global.openId.baseAuthUrl }}
         - name: AccountClientOptions__ApiBaseUrl
