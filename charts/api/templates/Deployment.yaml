@@ -69,7 +69,7 @@ spec:
         - name: ReleaseName
           value: {{.Release.Name}}
         - name: Host
-          value: {{ include "appHost" . }}
+          value: {{ include "host" . }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
         - name: Evacs__MaxJobsInParallel
