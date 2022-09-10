@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - {{ include "host" . }}
+    - {{ include "clientHost" . }}
     secretName: {{ include "clientModuleName" . }}-secret-ssl
   rules: 
-  - host: {{ include "appHost" . }}
+  - host: {{ include "clientHost" . }}
     http:
       paths:  
       - path: /
