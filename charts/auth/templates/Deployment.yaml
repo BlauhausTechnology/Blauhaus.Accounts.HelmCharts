@@ -70,6 +70,8 @@ spec:
           value: {{ include "appVersion" . }}
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}
+        - name: ASPNETCORE_HTTPS_PORT
+          value: {{ .Values.port }}
         - name: OpenIdOptions__AccessTokenExpiryHours 
           value: {{ .Values.global.openId.accessTokenExpiryHours | quote }}
         - name: OpenIdOptions__RefreshTokenExpiryDays
