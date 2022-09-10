@@ -69,9 +69,7 @@ spec:
              key: {{ .name }}
         {{ end }}
         - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }}
-        - name: ASPNETCORE_HTTPS_PORT
-          value: {{ .Values.port | quote }}
+          value: http://0.0.0.0:{{ .Values.port }} 
         - name: AzureAd__TenantId 
           value: {{ .Values.azuread.tenantId }}
         - name: AzureAd__Instance

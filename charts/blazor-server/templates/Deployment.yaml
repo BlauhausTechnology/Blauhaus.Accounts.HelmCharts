@@ -68,9 +68,7 @@ spec:
            secretKeyRef:
              name: {{ include "clientModuleName" $ }}-secrets
              key: {{ .name }}
-        {{ end }}
-        - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }}   
+        {{ end }} 
         - name: ASPNETCORE_HTTPS_PORT
           value: {{ .Values.port | quote }}
         - name: AccountClientOptions__TenantId
