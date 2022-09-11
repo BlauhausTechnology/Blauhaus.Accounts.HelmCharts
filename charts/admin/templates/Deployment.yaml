@@ -48,9 +48,7 @@ spec:
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
         - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }} 
-        - name: Logging__Level
-          value: {{ .Values.global.logging.level }} 
+          value: http://0.0.0.0:{{ .Values.port }}  
         {{- include "logging" . -}}
         {{ range .Values.customEnvironment }}
         - name: {{ .name }}
