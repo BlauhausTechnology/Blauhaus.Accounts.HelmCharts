@@ -45,6 +45,8 @@ spec:
           value: {{ include "host" . }}
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
+        - name: ASPNETCORE_URLS
+          value: http://0.0.0.0:{{ .Values.port }} 
         - name: Logging__Level
           value: {{ .Values.global.logging.level }}  
         {{ $counter := 0 | int }}
@@ -68,8 +70,6 @@ spec:
         {{ end }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
-        - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }} 
         - name: OpenIdOptions__AccessTokenExpiryHours 
           value: {{ .Values.global.openId.accessTokenExpiryHours | quote }}
         - name: OpenIdOptions__RefreshTokenExpiryDays

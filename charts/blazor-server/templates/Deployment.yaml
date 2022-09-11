@@ -48,6 +48,8 @@ spec:
           value: {{ include "appVersion" . }}
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ include "environment" . }}
+        - name: ASPNETCORE_URLS
+          value: http://0.0.0.0:{{ .Values.port }}   
         - name: Logging__Level
           value: {{ .Values.global.logging.level }} 
         {{ $counter := 0 | int }}
@@ -69,8 +71,6 @@ spec:
              name: {{ include "clientModuleName" $ }}-secrets
              key: {{ .name }}
         {{ end }} 
-        - name: ASPNETCORE_HTTPS_PORT
-          value: {{ .Values.port | quote }}
         - name: AccountClientOptions__TenantId
           value: {{ .Values.accountClientOptions.tenantId }}
         - name: AccountClientOptions__ApplicationId
