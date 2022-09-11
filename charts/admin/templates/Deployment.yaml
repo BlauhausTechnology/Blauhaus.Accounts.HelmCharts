@@ -39,18 +39,8 @@ spec:
         {{ include "env_logging" . }}
         {{ include "env_metadata" .}}
         {{ include "env_openidserver" .}}
-        {{ range .Values.customEnvironment }}
-        - name: {{ .name }}
-          value: {{ .value | quote }}
-        {{ end }}
-        {{ range .Values.customSecret }}
-        - name: {{ .name }}
-          valueFrom:
-           secretKeyRef:
-             name: {{ include "moduleName" $ }}-secrets
-             key: {{ .name }}
-        {{ end }}
-        - name: AzureAd__TenantId 
+        {{ include "env_custom" .}}
+         - name: AzureAd__TenantId 
           value: {{ .Values.azuread.tenantId }}
         - name: AzureAd__Instance
           value: {{ .Values.azuread.instance }}

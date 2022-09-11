@@ -78,7 +78,7 @@
         - name: Logging__{{ $counter }}__Level
           value: {{ .level }}
         {{ $counter = add1 $counter }}
-        {{- end -}}
+        {{ end }}
         {{- end -}}
 
         
@@ -86,14 +86,14 @@
         {{- range .Values.customEnvironment -}}
         - name: {{ .name }}
           value: {{ .value | quote }}
-        {{- end -}}
+        {{ end }}
         {{- range .Values.customSecret -}}
         - name: {{ .name }}
           valueFrom:
            secretKeyRef:
              name: {{ include "moduleName" $ }}-secrets
              key: {{ .name }}
-        {{- end -}}
+        {{ end }}
         {{- end -}}
 
         {{- define "env_openidserver" -}}
