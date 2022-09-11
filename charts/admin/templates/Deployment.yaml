@@ -35,18 +35,9 @@ spec:
         ports: 
         - containerPort: {{ .Values.port }} 
         env:
-        - name: ModuleName
-          value: {{ include "moduleName" . }}
-        - name: AppName
-          value: {{ .Values.global.name }}
-        - name: ReleaseName
-          value: {{ .Release.Name }}
-        - name: Host
-          value: {{ include "host" . }}
-        - name: AppVersion
-          value: {{ include "appVersion" . }}
         {{ include "env_aspnetcore" .}}
         {{ include "env_logging" . }}
+        {{ include "env_metadata" .}}
         {{ range .Values.customEnvironment }}
         - name: {{ .name }}
           value: {{ .value | quote }}

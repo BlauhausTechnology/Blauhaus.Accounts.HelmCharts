@@ -48,6 +48,28 @@
 {{- end -}}
 
 
+
+
+        {{- define "env_metadata" -}}
+        - name: ModuleName
+          value: {{ include "moduleName" . }}
+        - name: AppName
+          value: {{ .Values.global.name }}
+        - name: ReleaseName
+          value: {{ .Release.Name }}
+        - name: Host
+          value: {{ include "host" . }}
+        - name: AppVersion
+          value: {{ include "appVersion" . }}
+        {{- end -}}
+
+        {{- define "env_aspnetcore" -}}
+        - name: ASPNETCORE_ENVIRONMENT
+          value: {{ include "environment" . }}
+        - name: ASPNETCORE_URLS
+          value: http://0.0.0.0:{{ .Values.port }}  
+        {{- end -}}
+
         {{- define "env_logging" -}}
         {{ $counter := 0 | int }}
         {{- range .Values.global.logging.overrides -}}
@@ -59,9 +81,17 @@
         {{- end -}}
         {{- end -}}
 
-        {{- define "env_aspnetcore" -}}
-        - name: ASPNETCORE_ENVIRONMENT
-          value: {{ include "environment" . }}
-        - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }}  
+        
+        {{- define "env_custom" -}}
+        {{- range .Values.customEnvironment -}}
+        - name: {{ .name }}
+          value: {{ .value | quote }}
+        {{- end -}}
+        {{- range .Values.customSecret -}}
+        - name: {{ .name }}
+          valueFrom:
+           secretKeyRef:
+             name: {{ include "moduleName" $ }}-secrets
+             key: {{ .name }}
+        {{- end -}}
         {{- end -}}
