@@ -58,3 +58,9 @@
         {{ $counter = add1 $counter }}
         {{- end -}}
         {{- end -}}
+
+        {{- define "env_aspnetcore" -}}
+        - name: ASPNETCORE_ENVIRONMENT
+          value: {{ include "environment" . }}
+        - name: ASPNETCORE_URLS
+          value: http://0.0.0.0:{{ .Values.port }}  
