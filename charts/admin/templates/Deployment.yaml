@@ -51,7 +51,7 @@ spec:
           value: http://0.0.0.0:{{ .Values.port }} 
         - name: Logging__Level
           value: {{ .Values.global.logging.level }} 
-        {{ include "logging" . }}
+        {{- include "logging" . -}}
         {{ range .Values.customEnvironment }}
         - name: {{ .name }}
           value: {{ .value | quote }}
