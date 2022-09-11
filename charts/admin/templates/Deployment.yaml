@@ -45,10 +45,7 @@ spec:
           value: {{ include "host" . }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
-        - name: ASPNETCORE_ENVIRONMENT
-          value: {{ include "environment" . }}
-        - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }}  
+        {{ include "env_aspnetcore" .}}
         {{ include "env_logging" . }}
         {{ range .Values.customEnvironment }}
         - name: {{ .name }}
