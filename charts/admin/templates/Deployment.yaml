@@ -35,11 +35,14 @@ spec:
         ports: 
         - containerPort: {{ .Values.port }} 
         env:
+        - name: ModuleName
+          value: {{ include "moduleName" . }}
         {{ include "env_aspnetcore" .}}
         {{ include "env_logging" . }}
         {{ include "env_metadata" .}}
         {{ include "env_openidserver" .}}
         {{ include "env_custom" .}}
+        {{ include "env_customsecret" .}}
         - name: AzureAd__TenantId 
           value: {{ .Values.azuread.tenantId }}
         - name: AzureAd__Instance

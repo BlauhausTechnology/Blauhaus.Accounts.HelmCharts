@@ -37,61 +37,18 @@ spec:
         env:
         - name: ModuleName
           value: {{ include "moduleName" . }}
-        - name: AppName
-          value: {{ .Values.global.name }}
-        - name: ReleaseName
-          value: {{.Release.Name }}
-        - name: Host
-          value: {{ include "host" . }}
-        - name: ASPNETCORE_ENVIRONMENT
-          value: {{ include "environment" . }}
-        - name: ASPNETCORE_URLS
-          value: http://0.0.0.0:{{ .Values.port }} 
-        - name: Logging__Level
-          value: {{ .Values.global.logging.level }}  
-        {{ $counter := 0 | int }}
-        {{- range .Values.global.logging.overrides -}}
-        - name: Logging__{{ $counter }}__SourceContext
-          value: {{ .sourceContext }}
-        - name: Logging__{{ $counter }}__Level
-          value: {{ .level }}
-        {{ $counter = add1 $counter }}
-        {{- end -}}
-        {{ range .Values.customEnvironment }}
-        - name: {{ .name }}
-          value: {{ .value | quote }}
-        {{ end }}
-        {{ range .Values.customSecret }}
-        - name: {{ .name }}
-          valueFrom:
-           secretKeyRef:
-             name: {{ include "moduleName" $ }}-secrets
-             key: {{ .name }}
-        {{ end }}
-        - name: AppVersion
-          value: {{ include "appVersion" . }}
-        - name: OpenIdOptions__AccessTokenExpiryHours 
-          value: {{ .Values.global.openId.accessTokenExpiryHours | quote }}
-        - name: OpenIdOptions__RefreshTokenExpiryDays
-          value: {{ .Values.global.openId.refreshTokenExpiryDays | quote }}
-        - name: OpenIdOptions__BaseAuthUrl
-          value: {{ .Values.global.openId.baseAuthUrl }}
+        {{ include "env_aspnetcore" .}}
+        {{ include "env_logging" . }}
+        {{ include "env_metadata" .}}
+        {{ include "env_openidserver" .}}
+        {{ include "env_custom" .}}  
+        {{ include "env_customsecret" .}}
         {{ $counter := 0 | int }}
         {{- range .Values.openId.clientDomains -}}
         - name: OpenIdOptions__OpenIdClientDomains__{{ $counter }}
           value: {{ . }}
         {{ $counter = add1 $counter }}
-        {{- end -}}
-        - name: OpenIdOptions__EncryptionPassword
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "moduleName" . }}-secrets
-              key: OpenIdOptions--EncryptionPassword
-        - name: OpenIdOptions__SigningPassword
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "moduleName" . }}-secrets
-              key: OpenIdOptions--SigningPassword
+        {{- end -}} 
         - name: ConnectionStrings__SendGrid
           valueFrom:
             secretKeyRef:

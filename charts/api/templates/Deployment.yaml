@@ -40,11 +40,14 @@ spec:
         - containerPort: 11111
         - containerPort: 30000
         env:
+        - name: ModuleName
+          value: {{ include "moduleName" . }}
         {{ include "env_aspnetcore" .}}
         {{ include "env_logging" . }}
         {{ include "env_metadata" .}}
         {{ include "env_openidserver" .}}
         {{ include "env_custom" .}}
+        {{ include "env_customsecret" .}}
         - name: ORLEANS_SERVICE_ID
           valueFrom:
             fieldRef:

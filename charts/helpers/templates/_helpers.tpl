@@ -51,8 +51,6 @@
 
 
         {{- define "env_metadata" -}}
-        - name: ModuleName
-          value: {{ include "moduleName" . }}
         - name: AppName
           value: {{ .Values.global.name }}
         - name: ReleaseName
@@ -81,12 +79,14 @@
         {{ end }}
         {{- end -}}
 
-        
         {{- define "env_custom" -}}
         {{- range .Values.customEnvironment -}}
         - name: {{ .name }}
           value: {{ .value | quote }}
-        {{ end }}
+        {{ end }} 
+        {{- end -}}
+        
+        {{- define "env_customsecret" -}} 
         {{- range .Values.customSecret -}}
         - name: {{ .name }}
           valueFrom:
@@ -113,4 +113,21 @@
             secretKeyRef:
               name: {{ include "moduleName" . }}-secrets
               key: OpenIdOptions--SigningPassword
+        {{- end -}}
+
+        {{- define "env_openidclient" -}}
+        - name: AccountClientOptions__TenantId
+          value: {{ .Values.accountClientOptions.tenantId }}
+        - name: AccountClientOptions__ApplicationId
+          value: {{ .Values.accountClientOptions.applicationId }}
+        - name: AccountClientOptions__OpenIdClientId
+          value: {{ .Values.accountClientOptions.openIdClientId }}
+        - name: AccountClientOptions__OpenIdClientSecret
+          value: {{ .Values.accountClientOptions.openIdClientSecret }}
+        - name: AccountClientOptions__OpenIdClientDomain
+          value: {{ include "clientUrl" . }}
+        - name: AccountClientOptions__AuthBaseUrl
+          value: {{ .Values.global.openId.baseAuthUrl }}
+        - name: AccountClientOptions__ApiBaseUrl
+          value: {{ .Values.global.openId.baseAuthUrl }}
         {{- end -}}
