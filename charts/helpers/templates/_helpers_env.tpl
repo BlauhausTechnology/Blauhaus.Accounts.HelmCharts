@@ -65,6 +65,8 @@
         {{- end -}}
 
         {{- define "env_openidclient" -}}
+        - name: ClientName
+          value: {{ .Values.name }}
         - name: AccountClientOptions__TenantId
           value: {{ .Values.accountClientOptions.tenantId }}
         - name: AccountClientOptions__ApplicationId

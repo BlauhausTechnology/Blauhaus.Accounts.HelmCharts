@@ -29,6 +29,8 @@ spec:
         env:
         - name: ModuleName
           value: {{ include "clientModuleName" . }}
+        - name: ClientName
+          value: {{ .Values.name }}
         {{ include "env_aspnetcore" .}}
         {{ include "env_logging" . }}
         {{ include "env_metadata" .}}
