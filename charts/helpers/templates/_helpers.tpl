@@ -64,3 +64,4 @@
           value: {{ include "environment" . }}
         - name: ASPNETCORE_URLS
           value: http://0.0.0.0:{{ .Values.port }}  
+        {{- end -}}
