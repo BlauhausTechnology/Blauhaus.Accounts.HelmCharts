@@ -40,7 +40,7 @@ spec:
         {{ include "env_metadata" .}}
         {{ include "env_openidserver" .}}
         {{ include "env_custom" .}}
-         - name: AzureAd__TenantId 
+        - name: AzureAd__TenantId 
           value: {{ .Values.azuread.tenantId }}
         - name: AzureAd__Instance
           value: {{ .Values.azuread.instance }}
