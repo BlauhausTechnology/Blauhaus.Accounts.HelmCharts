@@ -95,3 +95,22 @@
              key: {{ .name }}
         {{- end -}}
         {{- end -}}
+
+        {{- define "env_openidserver" -}}
+        - name: OpenIdOptions__AccessTokenExpiryHours 
+          value: {{ .Values.global.openId.accessTokenExpiryHours | quote }}
+        - name: OpenIdOptions__RefreshTokenExpiryDays
+          value: {{ .Values.global.openId.refreshTokenExpiryDays | quote }}
+        - name: OpenIdOptions__BaseAuthUrl
+          value: {{ .Values.global.openId.baseAuthUrl }}
+        - name: OpenIdOptions__EncryptionPassword
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: OpenIdOptions--EncryptionPassword
+        - name: OpenIdOptions__SigningPassword
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: OpenIdOptions--SigningPassword
+        {{- end -}}
