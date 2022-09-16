@@ -70,9 +70,7 @@ spec:
             fieldRef:
               fieldPath: status.podIP
         - name: DOTNET_SHUTDOWNTIMEOUTSECONDS
-          value: {{ .Values.terminationGracePeriodSeconds | quote }}
-        - name: Evacs__MaxJobsInParallel
-          value: {{ .Values.global.evacs.maxJobsInParallel | quote }}
+          value: {{ .Values.terminationGracePeriodSeconds | quote }} 
         - name: OpenIdOptions__AccessTokenExpiryHours 
           value: {{ .Values.global.openId.accessTokenExpiryHours | quote }}
         - name: OpenIdOptions__RefreshTokenExpiryDays

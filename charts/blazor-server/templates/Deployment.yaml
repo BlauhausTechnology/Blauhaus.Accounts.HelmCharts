@@ -29,7 +29,7 @@ spec:
         env:
         - name: ModuleName
           value: {{ include "clientModuleName" . }}
-        {{ include "env_aspnetcore" .}}
+        {{ include "env_aspnetcore" . }}
         {{ include "env_logging" . }}
         {{ include "env_metadata" .}}
         {{ include "env_openidclient" .}}
