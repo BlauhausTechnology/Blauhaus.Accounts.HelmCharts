@@ -9,6 +9,11 @@
         - name: AppVersion
           value: {{ include "appVersion" . }}
         {{- end -}}
+                
+        {{- define "env_evacs" -}}
+        - name: Evacs__MaxJobsInParallel
+          value: {{ .Values.global.evacs.maxJobsInParallel | quote }}   
+        {{- end -}}
 
         {{- define "env_aspnetcore" -}}
         - name: ASPNETCORE_ENVIRONMENT

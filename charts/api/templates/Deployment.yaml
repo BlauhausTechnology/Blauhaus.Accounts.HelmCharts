@@ -43,6 +43,7 @@ spec:
         - name: ModuleName
           value: {{ include "moduleName" . }}
         {{ include "env_aspnetcore" .}}
+        {{ include "env_evacs" .}}
         {{ include "env_logging" . }}
         {{ include "env_metadata" .}}
         {{ include "env_openidserver" .}}
