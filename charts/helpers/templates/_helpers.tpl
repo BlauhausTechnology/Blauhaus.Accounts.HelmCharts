@@ -11,7 +11,7 @@
 {{- end -}}
 
 {{- define "clientModuleName" -}}
-{{ printf "%s-%s-%s" .Values.global.name .Values.global.environment .Values.name }}
+{{ printf "%s-%s-%s-%s" .Values.global.name .Values.global.environment .Chart.Name .Values.name }}
 {{- end -}}
 
 
