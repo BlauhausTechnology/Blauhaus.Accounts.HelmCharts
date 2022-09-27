@@ -3,6 +3,16 @@ entries:
   admin:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-09-27T07:49:30.597599055Z"
+    description: Admin web app
+    digest: 26b6ad3f0ee2c1fc453f5278e1aa7a2feec947ee63b236f6186ca4411b28b3ed
+    name: admin
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/admin-0.6.67/admin-0.6.67.tgz
+    version: 0.6.67
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-21T11:39:40.713106371Z"
     description: Admin web app
     digest: 4bc3b03cd1be70ceda364b732fb00d4a5041199f5db7967d257ac57ec4de7221
@@ -1684,6 +1694,16 @@ entries:
   api:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-09-27T07:49:30.963683049Z"
+    description: API
+    digest: f361e52426b028d0d19bff239a0009ef804338d68209a5ce0ea83a68d55ff843
+    name: api
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.6.67/api-0.6.67.tgz
+    version: 0.6.67
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-21T11:39:40.904286118Z"
     description: API
     digest: fc8fe5543e4b6c11249169fbfd7f4c43a231ac5c47758afad82409ee50cdaaea
@@ -3363,6 +3383,16 @@ entries:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.1.1/api-0.1.1.tgz
     version: 0.1.1
   auth:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-09-27T07:49:31.196907239Z"
+    description: Authentication
+    digest: c3c800755df3044516ae387d7f8ea6d53c558a41fb080d2b91c16de5b5d58edb
+    name: auth
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/auth-0.6.67/auth-0.6.67.tgz
+    version: 0.6.67
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-09-21T11:39:41.066692753Z"
@@ -5147,6 +5177,16 @@ entries:
   blazor-server:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-09-27T07:49:32.62643758Z"
+    description: Blazor server app
+    digest: fe070653cec81a00cdbc85c607696d5d04a9c7deba0f80afffbe3d597a00a90b
+    name: blazor-server
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/blazor-server-0.6.67/blazor-server-0.6.67.tgz
+    version: 0.6.67
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-21T11:39:41.213811228Z"
     description: Blazor server app
     digest: 537da8cb93e571d0b788cd0064d06e44e6987498b0bac976330b26b14db107aa
@@ -5936,6 +5976,16 @@ entries:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/blazor-server-0.5.1/blazor-server-0.5.1.tgz
     version: 0.5.1
   blazor-wasm:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-09-27T07:49:32.789935895Z"
+    description: Web host for blazor WASM app
+    digest: 539a97d687bf23a52f9d1bf0d592917c90875dfc581e72440e17fe4cf6e3034d
+    name: blazor-wasm
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/blazor-wasm-0.6.67/blazor-wasm-0.6.67.tgz
+    version: 0.6.67
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-09-21T11:39:41.362977411Z"
@@ -6729,6 +6779,16 @@ entries:
   helpers:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-09-27T07:49:32.986443834Z"
+    description: Helper functions
+    digest: 41c4169083d53b28b083c4067bcb487b81199e4f4d481b066e50b6ecabc09090
+    name: helpers
+    type: library
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/helpers-0.6.67/helpers-0.6.67.tgz
+    version: 0.6.67
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-09-21T11:39:41.545806825Z"
     description: Helper functions
     digest: 9e43316bd7f422e02fa8f7b32d31d7e5a5d343faefee54a532080e03ece08db5
@@ -7297,4 +7357,4 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/helpers-0.6.10/helpers-0.6.10.tgz
     version: 0.6.10
-generated: "2022-09-21T11:39:41.553434455Z"
+generated: "2022-09-27T07:49:32.995111493Z"
