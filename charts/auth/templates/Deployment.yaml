@@ -24,6 +24,7 @@ spec:
       containers:
       - name: {{ include "moduleName" . }}-container
         image: {{ include "dockerImage" . }} 
+        {{ include "resources" . }}
         volumeMounts:
           - name: {{ .Release.Name }}-openid-signing
             mountPath: "/{{ .Release.Name }}/signing"

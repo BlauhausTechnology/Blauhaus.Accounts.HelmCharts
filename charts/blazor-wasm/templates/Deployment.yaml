@@ -23,6 +23,7 @@ spec:
       containers:
       - name: {{ include "clientModuleName" . }}-container
         image: {{ include "clientDockerImage" . }} 
+        {{ include "resources" . }}
         imagePullPolicy: Always
         ports: 
         - containerPort: {{ .Values.port }} 

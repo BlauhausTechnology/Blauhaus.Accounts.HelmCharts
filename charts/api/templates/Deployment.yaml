@@ -26,13 +26,7 @@ spec:
       containers:
       - name: {{ include "moduleName" . }}-container
         image: {{ include "dockerImage" . }} 
-        resources:
-          limits:
-            memory: 600Mi
-            cpu: 1
-          requests:
-            memory: 300Mi
-            cpu: 500m
+        {{ include "resources" . }}
         volumeMounts:
           - name: {{ .Release.Name }}-openid-signing
             mountPath: "/{{ .Release.Name }}/signing"

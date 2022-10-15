@@ -87,3 +87,14 @@
         - name: AccountClientOptions__ApiBaseUrl
           value: {{ .Values.global.openId.baseAuthUrl }}
         {{- end -}}
+
+        
+        {{- define "resources" -}}
+        resources:
+          limits:
+            memory: {{ .Values.resources.limits.memory | default "300Mi" }}
+            cpu: {{ .Values.resources.limits.cpu | default "200m" }} 
+          requests:
+            memory: {{ .Values.resources.requests.memory | default "200Mi" }}
+            cpu: {{ .Values.resources.requests.cpu | default "100m" }}  
+        {{- end -}}
