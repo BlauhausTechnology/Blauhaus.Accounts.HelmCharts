@@ -104,7 +104,7 @@
             memory: "64Mi"
             cpu:  "50M"
           limits:
-            memory: "248Mi"
-            cpu: "500M"
+            memory: "256Mi"
+            cpu: "100M"
         {{- end -}}
         {{- end -}}
