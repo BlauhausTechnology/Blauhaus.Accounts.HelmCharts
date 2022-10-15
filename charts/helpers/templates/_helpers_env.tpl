@@ -98,13 +98,21 @@
           limits:
             memory: {{ .Values.resources.limits.memory | quote }} 
             cpu: {{ .Values.resources.limits.cpu | quote }}
+        {{- else if .Values.global.resources -}}
+        resources:
+          requests:
+            memory: {{ .Values.global.resources.requests.memory | quote }} 
+            cpu:  {{ .Values.resources.requests.cpu | quote }} 
+          limits:
+            memory: {{ .Values.global.resources.limits.memory | quote }} 
+            cpu: {{ .Values.global.resources.limits.cpu | quote }}
         {{- else -}}
         resources:
           requests:
-            memory: "64Mi"
-            cpu:  "50M"
+            memory: "32Mi"
+            cpu:  "20M"
           limits:
             memory: "256Mi"
-            cpu: "100M"
+            cpu: "200M"
         {{- end -}}
         {{- end -}}
