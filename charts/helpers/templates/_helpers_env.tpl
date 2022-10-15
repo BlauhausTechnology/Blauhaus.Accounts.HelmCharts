@@ -90,7 +90,7 @@
 
         
         {{- define "resources" -}}
-        {{ if .Values.resources }}
+        {{- if .Values.resources -}}
         resources:
           requests:
             memory: {{ .Values.resources.requests.memory | quote }} 
@@ -101,8 +101,8 @@
         {{- else -}}
         resources:
           requests:
-            memory: "148Mi"
-            cpu:  "250M"
+            memory: "64Mi"
+            cpu:  "50M"
           limits:
             memory: "248Mi"
             cpu: "500M"
