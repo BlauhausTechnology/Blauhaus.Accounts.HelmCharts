@@ -1,8 +1,8 @@
 port: 0000
 resources:
-  limits:
-    memory: 300Mi
-    cpu: 200m
   requests: 
-    memory: 200Mi
-    cpu: 100m
+    memory: "128Mi"
+    cpu: "250m"
+  limits:
+    memory: "248Mi"
+    cpu: "500m"
