@@ -92,9 +92,9 @@
         {{- define "resources" -}}
         resources:
           requests:
-            memory: {{ if .Values.resources.requests.memory -}} {{ .default "128Mi" .Values.resources.requests.memory | quote }} {{- else -}} "128Mi" {{- end }}
-            cpu:  {{ if .Values.resources.requests.cpu -}} {{ .default "250M" .Values.resources.requests.cpu | quote }} {{- else -}} "250M" {{- end }}
+            memory: {{ if .Values.resources.requests.memory -}} {{ .Values.resources.requests.memory | quote }} {{- else -}} "128Mi" {{- end }}
+            cpu:  {{ if .Values.resources.requests.cpu -}} {{ .Values.resources.requests.cpu | quote }} {{- else -}} "250M" {{- end }}
           limits:
-            memory: {{ if .Values.resources.limits.memory -}} {{ .default "248Mi" .Values.resources.limits.memory | quote }} {{- else -}} "248Mi" {{- end }}
-            cpu: {{ if .Values.resources.limits.cpu -}} {{ .default "500M" .Values.resources.requests.cpu | quote }} {{- else -}} "500M" {{- end }}
+            memory: {{ if .Values.resources.limits.memory -}} {{ .Values.resources.limits.memory | quote }} {{- else -}} "248Mi" {{- end }}
+            cpu: {{ if .Values.resources.limits.cpu -}} {{ .Values.resources.requests.cpu | quote }} {{- else -}} "500M" {{- end }}
         {{- end -}}
