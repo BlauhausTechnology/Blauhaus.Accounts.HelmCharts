@@ -90,11 +90,21 @@
 
         
         {{- define "resources" -}}
+        {{ if .Values.resources }}
         resources:
           requests:
-            memory: {{ if .Values.resources.requests.memory -}} {{ .Values.resources.requests.memory | quote }} {{- else -}} "128Mi" {{- end }}
-            cpu:  {{ if .Values.resources.requests.cpu -}} {{ .Values.resources.requests.cpu | quote }} {{- else -}} "250M" {{- end }}
+            memory: {{ .Values.resources.requests.memory | quote }} 
+            cpu:  {{ .Values.resources.requests.cpu | quote }} 
           limits:
-            memory: {{ if .Values.resources.limits.memory -}} {{ .Values.resources.limits.memory | quote }} {{- else -}} "248Mi" {{- end }}
-            cpu: {{ if .Values.resources.limits.cpu -}} {{ .Values.resources.requests.cpu | quote }} {{- else -}} "500M" {{- end }}
+            memory: {{ .Values.resources.limits.memory | quote }} 
+            cpu: {{ .Values.resources.limits.cpu | quote }}
+        {{- else -}}
+        resources:
+          requests:
+            memory: "148Mi"
+            cpu:  "250M"
+          limits:
+            memory: "248Mi"
+            cpu: "500M"
+        {{- end -}}
         {{- end -}}
