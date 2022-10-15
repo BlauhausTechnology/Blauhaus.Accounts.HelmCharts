@@ -110,9 +110,9 @@
         resources:
           requests:
             memory: "32Mi"
-            cpu:  "20M"
+            cpu:  "10M"
           limits:
             memory: "256Mi"
-            cpu: "200M"
+            cpu: "250M"
         {{- end -}}
         {{- end -}}
