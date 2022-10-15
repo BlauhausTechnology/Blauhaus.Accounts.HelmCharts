@@ -102,7 +102,7 @@
         resources:
           requests:
             memory: {{ .Values.global.resources.requests.memory | quote }} 
-            cpu:  {{ .Values.resources.requests.cpu | quote }} 
+            cpu:  {{ .Values.global.resources.requests.cpu | quote }} 
           limits:
             memory: {{ .Values.global.resources.limits.memory | quote }} 
             cpu: {{ .Values.global.resources.limits.cpu | quote }}
