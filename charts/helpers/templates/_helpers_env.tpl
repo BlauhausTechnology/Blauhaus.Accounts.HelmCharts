@@ -25,9 +25,9 @@
         {{- end -}}
 
         {{- define "env_logging" -}}
-        - name: Level
+        - name: Logging__Level
           value: {{ .Values.global.logging.level }}
-        - name: ConsoleLevel
+        - name: Logging__ConsoleLevel
           value: {{ .Values.global.logging.consoleLevel }}
         {{ $counter := 0 | int }}
         {{- range .Values.global.logging.overrides -}}
