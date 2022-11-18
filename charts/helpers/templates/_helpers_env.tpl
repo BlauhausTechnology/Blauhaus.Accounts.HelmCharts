@@ -14,9 +14,7 @@
         - name: Evacs__MaxJobsInParallel
           value: {{ .Values.global.evacs.maxJobsInParallel | quote }}   
         - name: Evacs__TimerIntervalSeconds
-          value: {{ .Values.global.evacs.timerIntervalSeconds | quote }}   
-        - name: Evacs__TimerSaveIntervalSeconds
-          value: {{ .Values.global.evacs.timerSaveIntervalSeconds | quote }}   
+          value: {{ .Values.global.evacs.timerIntervalSeconds | quote }}
         {{- end -}}
 
         {{- define "env_aspnetcore" -}}
