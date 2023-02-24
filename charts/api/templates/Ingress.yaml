@@ -22,3 +22,10 @@ spec:
             name: {{ include "moduleName" . }}-service
             port: 
               number: {{ .Values.port }}
+      - path: "/admin"
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "moduleName" . }}-service
+            port: 
+              number: {{ .Values.port }}
