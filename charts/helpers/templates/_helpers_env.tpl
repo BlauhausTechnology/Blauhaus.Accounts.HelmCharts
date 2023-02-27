@@ -8,6 +8,8 @@
           value: {{ include "host" . }}
         - name: AppVersion
           value: {{ include "appVersion" . }}
+        - name: Environment
+          value: {{ include "environment" . }}
         {{- end -}}
                 
         {{- define "env_evacs" -}}
