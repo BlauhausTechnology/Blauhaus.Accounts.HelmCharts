@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress 
 metadata:
-  name: {{ include "moduleName" . }}-ingress
+  name: {{ include "clientModuleName" . }}-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: {{ include "moduleName" . }}-clusterissuer
+    cert-manager.io/cluster-issuer: {{ include "clientModuleName" . }}-clusterissuer
     nginx.ingress.kubernetes.io/affinity: "cookie"      
 spec:
   tls:
   - hosts:
     - {{ include "clientHost" . }}
-    secretName: {{ include "moduleName" . }}-secret-ssl
+    secretName: {{ include "clientModuleName" . }}-secret-ssl
   rules: 
   - host: {{ include "clientHost" . }}
     http:
@@ -19,6 +19,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ include "moduleName" . }}-service
+            name: {{ include "clientModuleName" . }}-service
             port: 
               number: {{ .Values.port }}

@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: {{ include "moduleName" . }}
+  name: {{ include "clientModuleName" . }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: {{ include "moduleName" . }}-selector  
+      app: {{ include "clientModuleName" . }}-selector  
   minReadySeconds: 10   
   strategy:
     type: RollingUpdate
@@ -16,13 +16,13 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ include "moduleName" . }}-selector
+        app: {{ include "clientModuleName" . }}-selector
     spec:
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       imagePullSecrets:
       - name: secret-docker-auth
       containers:
-      - name: {{ include "moduleName" . }}-container
+      - name: {{ include "clientModuleName" . }}-container
         image: {{ include "dockerImage" . }} 
         {{ include "resources" . }}
         volumeMounts:
@@ -37,7 +37,7 @@ spec:
         - containerPort: {{ .Values.port }} 
         env:
         - name: ModuleName
-          value: {{ include "moduleName" . }}
+          value: {{ include "clientModuleName" . }}
         {{ include "env_aspnetcore" .}}
         {{ include "env_logging" . }}
         {{ include "env_metadata" .}}
@@ -47,12 +47,12 @@ spec:
         - name: ConnectionStrings__ApplicationInsights
           valueFrom:
             secretKeyRef:
-              name: {{ include "moduleName" . }}-secrets
+              name: {{ include "clientModuleName" . }}-secrets
               key: ConnectionStrings--ApplicationInsights
         - name: ConnectionStrings__AzureStorage
           valueFrom:
             secretKeyRef:
-              name: {{ include "moduleName" . }}-secrets
+              name: {{ include "clientModuleName" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
         - name: {{ .Release.Name }}-openid-signing
