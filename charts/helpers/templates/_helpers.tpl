@@ -39,6 +39,10 @@
 {{- printf "%s/%s-%s-%s:%s" .Values.global.repository .Values.global.name .Chart.Name .Values.name .Values.global.appVersion -}}
 {{- end -}}
 
+{{- define "customDockerImage" -}} 
+{{- printf "%s:%s" .Values.dockerImage .Values.global.appVersion -}}
+{{- end -}}
+
 {{ define "environment"}}
 {{- if contains .Values.global.environment "production" -}}
 {{- "Production" -}}

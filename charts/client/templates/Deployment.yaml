@@ -23,7 +23,7 @@ spec:
       - name: secret-docker-auth
       containers:
       - name: {{ include "clientModuleName" . }}-container
-        image: {{ include .Values.dockerImages }}
+        image: {{ include "customDockerImage" . }} 
         {{ include "resources" . }}
         volumeMounts:
           - name: {{ include "applicationEnvironment" . }}-openid-signing
