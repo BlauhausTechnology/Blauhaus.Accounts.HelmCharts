@@ -44,26 +44,6 @@ spec:
         {{ include "env_openidserver" .}}
         {{ include "env_custom" .}}
         {{ include "env_customsecret" .}}
-        - name: AzureAd__TenantId 
-          value: {{ .Values.azuread.tenantId }}
-        - name: AzureAd__Instance
-          value: {{ .Values.azuread.instance }}
-        - name: AzureAd__Domain 
-          value: {{ .Values.azuread.domain }}
-        - name: AzureAd__ClientId
-          value: {{ .Values.azuread.clientId }}
-        - name: AzureAd__CallbackPath
-          value: {{ .Values.azuread.callbackPath }} 
-        - name: ConnectionStrings__SendGrid
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "moduleName" . }}-secrets
-              key: ConnectionStrings--SendGrid
-        - name: ConnectionStrings__EvacsDb
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "moduleName" . }}-secrets
-              key: ConnectionStrings--EvacsDb
         - name: ConnectionStrings__ApplicationInsights
           valueFrom:
             secretKeyRef:
