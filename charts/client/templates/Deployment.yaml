@@ -41,7 +41,7 @@ spec:
         {{ include "env_aspnetcore" .}}
         {{ include "env_logging" . }}
         {{ include "env_metadata" .}}
-        {{ include "env_openidserver" .}}
+        {{ include "env_openidclient" .}}
         {{ include "env_custom" .}}
         {{ include "env_customsecret" .}}
         - name: ConnectionStrings__ApplicationInsights

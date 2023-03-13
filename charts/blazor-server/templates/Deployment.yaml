@@ -35,6 +35,7 @@ spec:
         {{ include "env_metadata" .}}
         {{ include "env_openidclient" .}}
         {{ include "env_custom" .}}   
+        {{ include "env_customsecret" .}}
         - name: ConnectionStrings__ApplicationInsights
           valueFrom:
             secretKeyRef:

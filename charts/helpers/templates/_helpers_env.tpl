@@ -53,7 +53,7 @@
         - name: {{ .name }}
           valueFrom:
            secretKeyRef:
-             name: {{ include "applicationName" $ }}-secrets
+             name: {{ include "applicationEnvironment" $ }}-secrets
              key: {{ .name }}
         {{ end }}
         {{- end -}} 
