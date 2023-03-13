@@ -1,6 +1,10 @@
 {{- define "applicationName" -}}
 {{ printf "%s" .Values.global.name }}
 {{- end -}}
+
+{{- define "applicationEnvironment" -}}
+{{ printf "%s-%s" .Values.global.name .Values.global.environment }}
+{{- end -}}
   
 {{- define "appVersion" -}}
 {{ .Values.global.appVersion }}

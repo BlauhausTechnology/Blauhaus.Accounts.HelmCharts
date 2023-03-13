@@ -55,13 +55,13 @@ spec:
               name: {{ include "clientModuleName" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
-        - name: {{ .Release.Name }}-openid-signing
+        - name: {{ include applicationEnvironment . }}-openid-signing
           secret:
-            secretName: {{ .Release.Name }}-openid-signing
+            secretName: {{ include applicationEnvironment . }}-openid-signing
             optional: false
-        - name: {{ .Release.Name }}-openid-encryption
+        - name: {{ include applicationEnvironment . }}-openid-encryption
           secret:
-            secretName: {{ .Release.Name }}-openid-encryption
+            secretName: {{ include applicationEnvironment . }}-openid-encryption
             optional: false
       
       
