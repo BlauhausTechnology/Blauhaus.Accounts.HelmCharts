@@ -3822,6 +3822,17 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-0.1.1/api-0.1.1.tgz
     version: 0.1.1
+  api-client:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-03-13T07:52:29.336783895Z"
+    description: API client app
+    digest: f0f73ec81d97c06e59a301a186bc57fa0713a0eb2c44fdd721003e4acbe8b6fe
+    name: api-client
+    type: application
+    urls:
+    - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/api-client-0.8.2/api-client-0.8.2.tgz
+    version: 0.8.2
   auth:
   - apiVersion: v2
     appVersion: 0.1.0
@@ -8677,4 +8688,4 @@ entries:
     urls:
     - https://github.com/BlauhausTechnology/Blauhaus.Accounts.HelmCharts/releases/download/helpers-0.6.10/helpers-0.6.10.tgz
     version: 0.6.10
-generated: "2023-03-13T07:43:34.859758334Z"
+generated: "2023-03-13T07:52:30.205139768Z"
