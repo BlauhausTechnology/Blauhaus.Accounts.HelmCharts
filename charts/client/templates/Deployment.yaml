@@ -47,12 +47,12 @@ spec:
         - name: ConnectionStrings__ApplicationInsights
           valueFrom:
             secretKeyRef:
-              name: {{ include "clientModuleName" . }}-secrets
+              name: {{ include "applicationEnvironment" . }}-secrets
               key: ConnectionStrings--ApplicationInsights
         - name: ConnectionStrings__AzureStorage
           valueFrom:
             secretKeyRef:
-              name: {{ include "clientModuleName" . }}-secrets
+              name: {{ include "applicationEnvironment" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
         - name: {{ include "applicationEnvironment" . }}-openid-signing
