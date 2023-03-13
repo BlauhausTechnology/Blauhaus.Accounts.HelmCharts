@@ -26,11 +26,11 @@ spec:
         image: {{ include "customDockerImage" . }} 
         {{ include "resources" . }}
         volumeMounts:
-          - name: {{ include "applicationEnvironment" . }}-openid-signing
-            mountPath: "/{{ include "applicationEnvironment" . }}/signing"
+          - name: {{ include "clientModuleName" . }}-openid-signing
+            mountPath: "/{{ include "clientModuleName" . }}/signing"
             readOnly: true
-          - name: {{ include "applicationEnvironment" . }}-openid-encryption
-            mountPath: "/{{ include "applicationEnvironment" . }}/encryption"
+          - name: {{ include "clientModuleName" . }}-openid-encryption
+            mountPath: "/{{ include "clientModuleName" . }}/encryption"
             readOnly: true
         imagePullPolicy: Always
         ports: 
@@ -47,21 +47,21 @@ spec:
         - name: ConnectionStrings__ApplicationInsights
           valueFrom:
             secretKeyRef:
-              name: {{ include "applicationEnvironment" . }}-secrets
+              name: {{ include "clientModuleName" . }}-secrets
               key: ConnectionStrings--ApplicationInsights
         - name: ConnectionStrings__AzureStorage
           valueFrom:
             secretKeyRef:
-              name: {{ include "applicationEnvironment" . }}-secrets
+              name: {{ include "clientModuleName" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
-        - name: {{ include "applicationEnvironment" . }}-openid-signing
+        - name: {{ include "clientModuleName" . }}-openid-signing
           secret:
-            secretName: {{ include "applicationEnvironment" . }}-openid-signing
+            secretName: {{ include "clientModuleName" . }}-openid-signing
             optional: false
-        - name: {{ include "applicationEnvironment" . }}-openid-encryption
+        - name: {{ include "clientModuleName" . }}-openid-encryption
           secret:
-            secretName: {{ include "applicationEnvironment" . }}-openid-encryption
+            secretName: {{ include "clientModuleName" . }}-openid-encryption
             optional: false
       
       
