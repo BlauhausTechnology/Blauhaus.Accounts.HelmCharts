@@ -15,7 +15,7 @@ spec:
   - host: {{ include "clientHost" . }}
     http:
       paths:  
-      - path: /
+      - path: / {{ include "clientHost" . }}
         pathType: Prefix
         backend:
           service:
