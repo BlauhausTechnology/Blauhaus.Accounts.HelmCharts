@@ -28,11 +28,11 @@ spec:
         image: {{ include "dockerImage" . }} 
         {{ include "resources" . }}
         volumeMounts:
-          - name: {{ .Release.Name }}-openid-signing
-            mountPath: "/{{ .Release.Name }}/signing"
+          - name: {{ include "applicationEnvironment" . }}-openid-signing
+            mountPath: "/{{ include "applicationEnvironment" . }}/signing"
             readOnly: true
-          - name: {{ .Release.Name }}-openid-encryption
-            mountPath: "/{{ .Release.Name }}/encryption"
+          - name: {{ include "applicationEnvironment" . }}-openid-encryption
+            mountPath: "/{{ include "applicationEnvironment" . }}/encryption"
             readOnly: true
         imagePullPolicy: Always
         ports: 
@@ -97,13 +97,13 @@ spec:
               name: {{ include "moduleName" . }}-secrets
               key: ConnectionStrings--AzureStorage 
       volumes:
-        - name: {{ .Release.Name }}-openid-signing
+        - name: {{ include "applicationEnvironment" . }}-openid-signing
           secret:
-            secretName: {{ .Release.Name }}-openid-signing
+            secretName: {{ include "applicationEnvironment" . }}-openid-signing
             optional: false
-        - name: {{ .Release.Name }}-openid-encryption
+        - name: {{ include "applicationEnvironment" . }}-openid-encryption
           secret:
-            secretName: {{ .Release.Name }}-openid-encryption
+            secretName: {{ include "applicationEnvironment" . }}-openid-encryption
             optional: false
       
       

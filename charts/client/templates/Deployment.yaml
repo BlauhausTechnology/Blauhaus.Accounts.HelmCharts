@@ -27,10 +27,10 @@ spec:
         {{ include "resources" . }}
         volumeMounts:
           - name: {{ include "applicationEnvironment" . }}-openid-signing
-            mountPath: "/{{ .Release.Name }}/signing"
+            mountPath: "/{{ include "applicationEnvironment" . }}/signing"
             readOnly: true
           - name: {{ include "applicationEnvironment" . }}-openid-encryption
-            mountPath: "/{{ .Release.Name }}/encryption"
+            mountPath: "/{{ include "applicationEnvironment" . }}/encryption"
             readOnly: true
         imagePullPolicy: Always
         ports: 
