@@ -53,10 +53,10 @@
         - name: {{ .name }}
           valueFrom:
            secretKeyRef:
-             name: {{ include "moduleName" $ }}-secrets
+             name: {{ include "applicationName" $ }}-secrets
              key: {{ .name }}
         {{ end }}
-        {{- end -}}
+        {{- end -}} 
 
         {{- define "env_openidserver" -}}
         - name: OpenIdOptions__AccessTokenExpiryHours 
