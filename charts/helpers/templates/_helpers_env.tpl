@@ -53,7 +53,17 @@
         - name: {{ .name }}
           valueFrom:
            secretKeyRef:
-             name: {{ include "applicationEnvironment" $ }}-secrets
+             name: {{ include "moduleName" $ }}-secrets
+             key: {{ .name }}
+        {{ end }}
+        {{- end -}} 
+        
+        {{- define "env_clientCustomsecret" -}} 
+        {{- range .Values.customSecret -}}
+        - name: {{ .name }}
+          valueFrom:
+           secretKeyRef:
+             name: {{ include "clientModuleName" $ }}-secrets
              key: {{ .name }}
         {{ end }}
         {{- end -}} 
