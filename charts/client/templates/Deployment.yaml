@@ -26,10 +26,10 @@ spec:
         image: {{ include "dockerImage" . }} 
         {{ include "resources" . }}
         volumeMounts:
-          - name: {{ .Release.Name }}-openid-signing
+          - name: {{ include "applicationEnvironment" . }}-openid-signing
             mountPath: "/{{ .Release.Name }}/signing"
             readOnly: true
-          - name: {{ .Release.Name }}-openid-encryption
+          - name: {{ include "applicationEnvironment" . }}-openid-encryption
             mountPath: "/{{ .Release.Name }}/encryption"
             readOnly: true
         imagePullPolicy: Always
