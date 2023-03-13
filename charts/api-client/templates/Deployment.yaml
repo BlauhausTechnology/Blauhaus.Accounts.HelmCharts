@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: {{ include "moduleName" . }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "moduleName" . }}-selector  
+  minReadySeconds: 10   
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1     
+  template:
+    metadata:
+      labels:
+        app: {{ include "moduleName" . }}-selector
+    spec:
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+      imagePullSecrets:
+      - name: secret-docker-auth
+      containers:
+      - name: {{ include "moduleName" . }}-container
+        image: {{ include "dockerImage" . }} 
+        {{ include "resources" . }}
+        volumeMounts:
+          - name: {{ .Release.Name }}-openid-signing
+            mountPath: "/{{ .Release.Name }}/signing"
+            readOnly: true
+          - name: {{ .Release.Name }}-openid-encryption
+            mountPath: "/{{ .Release.Name }}/encryption"
+            readOnly: true
+        imagePullPolicy: Always
+        ports: 
+        - containerPort: {{ .Values.port }} 
+        env:
+        - name: ModuleName
+          value: {{ include "moduleName" . }}
+        {{ include "env_aspnetcore" .}}
+        {{ include "env_logging" . }}
+        {{ include "env_metadata" .}}
+        {{ include "env_openidserver" .}}
+        {{ include "env_custom" .}}
+        {{ include "env_customsecret" .}}
+        - name: AzureAd__TenantId 
+          value: {{ .Values.azuread.tenantId }}
+        - name: AzureAd__Instance
+          value: {{ .Values.azuread.instance }}
+        - name: AzureAd__Domain 
+          value: {{ .Values.azuread.domain }}
+        - name: AzureAd__ClientId
+          value: {{ .Values.azuread.clientId }}
+        - name: AzureAd__CallbackPath
+          value: {{ .Values.azuread.callbackPath }} 
+        - name: ConnectionStrings__SendGrid
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: ConnectionStrings--SendGrid
+        - name: ConnectionStrings__EvacsDb
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: ConnectionStrings--EvacsDb
+        - name: ConnectionStrings__ApplicationInsights
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: ConnectionStrings--ApplicationInsights
+        - name: ConnectionStrings__AzureStorage
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "moduleName" . }}-secrets
+              key: ConnectionStrings--AzureStorage 
+      volumes:
+        - name: {{ .Release.Name }}-openid-signing
+          secret:
+            secretName: {{ .Release.Name }}-openid-signing
+            optional: false
+        - name: {{ .Release.Name }}-openid-encryption
+          secret:
+            secretName: {{ .Release.Name }}-openid-encryption
+            optional: false
+      
+      
