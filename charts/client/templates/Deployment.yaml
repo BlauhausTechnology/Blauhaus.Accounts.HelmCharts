@@ -43,7 +43,14 @@ spec:
         {{ include "env_metadata" .}}
         {{ include "env_openidclient" .}}
         {{ include "env_custom" .}}
-        {{ include "env_customsecret" .}}
+        {{- range .Values.customSecret -}}
+        - name: {{ .name }}
+          valueFrom:
+           secretKeyRef:
+             name: {{ include "clientModuleName" $ }}-secrets
+             key: {{ .name }}
+        {{ end }}
+        {{- end -}} 
         - name: ConnectionStrings__ApplicationInsights
           valueFrom:
             secretKeyRef:
