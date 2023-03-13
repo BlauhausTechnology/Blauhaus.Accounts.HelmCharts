@@ -1,5 +1,5 @@
 apiVersion: v2
-name: admin
+name: api-client
 description: API client app
 version: CHART_VERSION        # version of the chart 
 type: application
